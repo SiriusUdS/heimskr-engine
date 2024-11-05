@@ -1,0 +1,17 @@
+# Doxyfile 1.12.0
+
+PROJECT_NAME           = "sirius-gcs"
+
+PROJECT_BRIEF          = "Ground control station application for managing and monitoring rocket flights."
+
+INPUT                  = ./src \
+                         README.md
+
+OUTPUT_DIRECTORY       = ./doc
+
+FILE_PATTERNS          = *.h \
+                         *.cpp
+
+RECURSIVE              = YES
+
+USE_MDFILE_AS_MAINPAGE = README.md
