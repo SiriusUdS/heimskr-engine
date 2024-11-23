@@ -1,7 +1,6 @@
 /**
  * @file Engine.h
  * @brief Core of the engine.
- *
  */
 
 #pragma once
