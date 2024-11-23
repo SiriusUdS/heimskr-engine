@@ -25,6 +25,15 @@ project "heimskr-engine"
 
     filter "configurations:Debug"
         symbols "On"
+        clangtidy("On")
+        runcodeanalysis("On")
 
     filter "configurations:Release"
         optimize "On"
+        clangtidy("On")
+        runcodeanalysis("On")		
+		
+    filter "action:vs*"
+        prebuildcommands {
+            "doxygen Doxyfile"
+		}	

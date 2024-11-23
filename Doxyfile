@@ -1,8 +1,8 @@
 # Doxyfile 1.12.0
 
-PROJECT_NAME           = "sirius-gcs"
+PROJECT_NAME           = "heimskr-engine"
 
-PROJECT_BRIEF          = "Ground control station application for managing and monitoring rocket flights."
+PROJECT_BRIEF          = "3D engine for simulating the Sirius rockets"
 
 INPUT                  = ./src \
                          README.md
