@@ -5,7 +5,7 @@
 
 #include "Engine.h"
 
-namespace Core {
+namespace HeimskrEngine {
 
   Engine::Engine() {
     isRunning = false;
@@ -26,7 +26,7 @@ namespace Core {
    */
   void Engine::Run() {
     isRunning = true;
-    while (true) {
+    while (!glfwWindowShouldClose(window.get())) {
       Update();
     }
   }
@@ -45,8 +45,10 @@ namespace Core {
    * @return void
    */
   void Engine::Update() {
-    glfwPollEvents();
+    glClearColor(0.1f, 0, 0.2f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window.get());
+    glfwPollEvents();
     isRunning = !glfwWindowShouldClose(window.get());
   }
 
@@ -73,8 +75,10 @@ namespace Core {
     glfwWindowHint(GLFW_GREEN_BITS, mode->greenBits);
     glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);
     glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
+    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
 
-    window = UniqueGLFWwindow(glfwCreateWindow(mode->width, mode->height, ENGINE_WINDOW_TITLE, monitor, nullptr));
+    // Monitor parameter is nullptr, so the window will be windowed and not fullscreen
+    window = UniqueGLFWwindow(glfwCreateWindow(mode->width, mode->height, ENGINE_WINDOW_TITLE, nullptr, nullptr));
     glfwSetWindowMonitor(window.get(), monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 
     //window = UniqueGLFWwindow(glfwCreateWindow(windowWidth, windowHeight, ENGINE_WINDOW_TITLE, nullptr, nullptr));
@@ -85,6 +89,7 @@ namespace Core {
     }
 
     glfwMakeContextCurrent(window.get());
+    gladLoadGL();
   }
 
   /**

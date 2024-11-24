@@ -5,11 +5,12 @@
 
 #pragma once
 
-#include <memory>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <memory>
 #include <stdexcept>
 
-namespace Core {
+namespace HeimskrEngine {
 
   constexpr int ENGINE_WINDOW_WIDTH = 800;
   constexpr int ENGINE_WINDOW_HEIGHT = 600;
@@ -57,5 +58,5 @@ namespace Core {
     int windowHeight;
   };
 
-  static Engine& Heimskr = Engine::GetInstance();
+  static Engine& Core = Engine::GetInstance();
 }

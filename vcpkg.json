@@ -3,7 +3,7 @@
         "glad",
         "glfw3",
         {
-            "name": "imgui",
+            "name": "hello-imgui",
             "features": [
                 "opengl3-binding",
                 "glfw-binding"
