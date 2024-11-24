@@ -6,7 +6,7 @@
 - Visual Studio 2022
 
 ### Solution setup
-1. Clone the repository
+1. Clone the repository.
 2. Execute the `setup.bat` script in the **setup** folder.
 3. Open the **heimskr-engine.sln** solution in Visual Studio 2022.
 4. Build then run.
