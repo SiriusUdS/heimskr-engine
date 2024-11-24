@@ -13,5 +13,5 @@
 
 ### Documentation
 For the code documentation, you have 2 choices at the moment:
-1. You build the solution in Visual Studio then open the `index.html` file in the **doc/html** folder from the project root folder.
+1. Build the solution in Visual Studio then open the `index.html` file in the **doc/html** folder from the project root folder.
 2. Open a terminal inside dthe root folder of the project, then run `doxygen Doxyfile`. The documentation will be in the **doc/html** folder from the project root folder.
