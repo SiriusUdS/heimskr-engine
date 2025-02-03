@@ -5,11 +5,22 @@
 #include "ImGuiManager.h"
 #include "Logging.h"
 
-#include "engine/Engine.h"
+//#include "engine/Engine.h"
+#include "Core.h"
 
 int main()
 {
-  HeimskrEngine::Core.Run();
+  HeimskrEngine::Core.Initialize();
+  HeimskrEngine::Timer.Initialize();
+  HeimskrEngine::Events.Initialize();
+
+  while (HeimskrEngine::Core.IsRunning()) {
+    HeimskrEngine::Timer.Update();
+    HeimskrEngine::Events.Update();
+    HeimskrEngine::Core.Update();
+  }
+
+  //HeimskrEngine::Core.Run();
 	//Logging::initSpdLog();
 
 	//glfwInit();

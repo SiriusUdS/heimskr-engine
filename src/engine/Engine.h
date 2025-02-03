@@ -38,10 +38,12 @@ namespace HeimskrEngine {
       return instance;
     }
 
-	void Run();
+	//void Run();
+    void Update();
     void Stop();
     void Initialize();
 
+    //bool Run() const;
     bool IsRunning() const;
     GLFWwindow& GetWindow() const;
     int GetWindowWidth() const;
@@ -50,7 +52,7 @@ namespace HeimskrEngine {
   private:
     Engine();
 
-    void Update();
+    //void Update();
 
     bool isRunning;
     UniqueGLFWwindow window;

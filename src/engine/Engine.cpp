@@ -24,12 +24,12 @@ namespace HeimskrEngine {
    * @brief Starts the main loop of the engine
    * @return void
    */
-  void Engine::Run() {
+  /*void Engine::Run() {
     isRunning = true;
     while (!glfwWindowShouldClose(window.get())) {
       Update();
     }
-  }
+  }*/
 
   /**
    * @brief Stops the main loop of the engine
@@ -37,6 +37,7 @@ namespace HeimskrEngine {
    */
   void Engine::Stop() {
     isRunning = false;
+    glfwSetWindowShouldClose(window.get(), GLFW_TRUE);
   }
 
   /**
@@ -79,7 +80,7 @@ namespace HeimskrEngine {
 
     // Monitor parameter is nullptr, so the window will be windowed and not fullscreen
     window = UniqueGLFWwindow(glfwCreateWindow(mode->width, mode->height, ENGINE_WINDOW_TITLE, nullptr, nullptr));
-    glfwSetWindowMonitor(window.get(), monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+    //glfwSetWindowMonitor(window.get(), monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 
     //window = UniqueGLFWwindow(glfwCreateWindow(windowWidth, windowHeight, ENGINE_WINDOW_TITLE, nullptr, nullptr));
 
@@ -90,6 +91,7 @@ namespace HeimskrEngine {
 
     glfwMakeContextCurrent(window.get());
     gladLoadGL();
+    isRunning = true;
   }
 
   /**
