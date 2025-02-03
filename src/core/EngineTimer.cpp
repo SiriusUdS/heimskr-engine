@@ -7,18 +7,31 @@
 
 namespace HeimskrEngine {
 
+  /**
+   * @brief Constructor of the EngineTimer class
+   */
   EngineTimer::~EngineTimer() {
   }
 
+  /**
+   * @brief Initializes the engine timer
+   */
   void EngineTimer::Initialize() {
-    lastFrame = static_cast<float>(glfwGetTime());
+
   }
 
+  /**
+    * @brief Updates the engine timer
+    */
   void EngineTimer::Update() {
     deltaTime = glfwGetTime() - lastFrame;
     lastFrame = glfwGetTime();
   }
 
+  /**
+    * @brief Returns the delta time of the engine timer
+    * @return Delta time as double
+    */
   double EngineTimer::DeltaTime() const {
     return deltaTime;
   }

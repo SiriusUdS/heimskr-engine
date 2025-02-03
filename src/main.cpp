@@ -8,8 +8,7 @@
 //#include "engine/Engine.h"
 #include "Core.h"
 
-int main()
-{
+int main() {
   HeimskrEngine::Core.Initialize();
   HeimskrEngine::Timer.Initialize();
   HeimskrEngine::Events.Initialize();

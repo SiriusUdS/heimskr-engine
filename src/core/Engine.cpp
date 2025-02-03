@@ -7,6 +7,9 @@
 
 namespace HeimskrEngine {
 
+  /**
+    * @brief Constructor of the Engine class
+  */
   Engine::Engine() {
     isRunning = false;
     Initialize();
@@ -19,17 +22,6 @@ namespace HeimskrEngine {
     glfwDestroyWindow(window.get());
     glfwTerminate();
   }
-
-  /**
-   * @brief Starts the main loop of the engine
-   * @return void
-   */
-  /*void Engine::Run() {
-    isRunning = true;
-    while (!glfwWindowShouldClose(window.get())) {
-      Update();
-    }
-  }*/
 
   /**
    * @brief Stops the main loop of the engine
