@@ -6,7 +6,7 @@
 #include "Logging.h"
 
 //#include "engine/Engine.h"
-#include "Core.h"
+#include "core/Core.h"
 
 int main() {
   HeimskrEngine::Core.Initialize();

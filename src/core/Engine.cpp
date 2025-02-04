@@ -8,8 +8,8 @@
 namespace HeimskrEngine {
 
   /**
-    * @brief Constructor of the Engine class
-  */
+   * @brief Constructor of the Engine class
+   */
   Engine::Engine() {
     isRunning = false;
     Initialize();
