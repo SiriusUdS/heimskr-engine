@@ -13,8 +13,8 @@ namespace ECS {
   class System;
   class Component;
 
-  const uint16_t MAX_ENTITIES = 5000;
-  const uint16_t MAX_COMPONENTS = 32;
+  constexpr uint16_t MAX_ENTITIES   = 5000;
+  constexpr uint16_t MAX_COMPONENTS = 32;
 
   using EntityID = uint16_t;
   using SystemTypeID = uint16_t;

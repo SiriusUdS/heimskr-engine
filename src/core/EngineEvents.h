@@ -14,7 +14,7 @@ namespace HeimskrEngine {
   public:
     EngineEvents(const EngineEvents& other) = delete;
     EngineEvents& operator=(const EngineEvents&) = delete;
-    ~EngineEvents();
+    ~EngineEvents() = default;
 
     static EngineEvents& GetInstance() {
       static EngineEvents instance;

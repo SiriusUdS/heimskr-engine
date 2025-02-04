@@ -13,12 +13,6 @@ namespace HeimskrEngine {
   void WindowShouldCloseCallback(GLFWwindow* window);
 
   /**
-   * @brief Constructor of the EngineEvents class
-   */
-  EngineEvents::~EngineEvents() {
-  }
-
-  /**
    * @brief Initializes the engine events
    */
   void EngineEvents::Initialize() {

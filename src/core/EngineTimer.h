@@ -13,7 +13,7 @@ namespace HeimskrEngine {
   public:
     EngineTimer(const EngineTimer& other) = delete;
     EngineTimer& operator=(const EngineTimer&) = delete;
-    ~EngineTimer();
+    ~EngineTimer() = default;
 
     static EngineTimer& GetInstance() {
       static EngineTimer instance;

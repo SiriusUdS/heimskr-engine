@@ -8,12 +8,6 @@
 namespace HeimskrEngine {
 
   /**
-   * @brief Constructor of the EngineTimer class
-   */
-  EngineTimer::~EngineTimer() {
-  }
-
-  /**
    * @brief Initializes the engine timer
    */
   void EngineTimer::Initialize() {
