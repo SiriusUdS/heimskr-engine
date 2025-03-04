@@ -11,19 +11,19 @@
 namespace ECS {
 
   // TODO: Check if this is necessary for ComponentVector
-  //class IComponentVector {
-  //public:
-  //  IComponentVector() = default;
-  //  virtual ~IComponentVector() = default;
-  //  virtual void Erase(const EntityID entity) {}
-  //};
+  class IComponentVector {
+  public:
+    IComponentVector() = default;
+    virtual ~IComponentVector() = default;
+    virtual void Erase(const EntityID entity) {}
+  };
 
   /**
    * \brief Vector wrapper class for components.
    * \tparam T Type of the component.
    */
   template<typename T>
-  class ComponentVector {
+  class ComponentVector : public IComponentVector {
   public:
     ComponentVector() = default;
     virtual ~ComponentVector() = default;
@@ -45,7 +45,7 @@ namespace ECS {
      * \brief Erase a component from the vector.
      * \param[in] entity EntityID of the component to erase.
      */
-    void Erase(const EntityID entity);
+    void Erase(const EntityID entity) override;
 
     std::vector<T> components;
   };

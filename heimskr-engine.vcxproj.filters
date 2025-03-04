@@ -37,6 +37,7 @@
     <ClInclude Include="src\ecs\base\System.h" />
     <ClInclude Include="src\core\Engine.h" />
     <ClInclude Include="src\ecs\base\ComponentVector.h" />
+    <ClInclude Include="src\ecs\base\EntityManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gui\ControlsWindow.cpp">
@@ -61,5 +62,6 @@
     <ClCompile Include="src\ecs\base\System.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="src\ecs\base\ComponentVector.cpp" />
+    <ClCompile Include="src\ecs\base\EntityManager.cpp" />
   </ItemGroup>
 </Project>

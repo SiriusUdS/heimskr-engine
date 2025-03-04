@@ -38,7 +38,7 @@ namespace ECS {
   }
 
   /**
-   * \brief Start the system. This is called once at the start of the program.
+   * \brief Start and initialize the system. This is called once at the start of the program.
    */
   void System::Start() {
     // Do nothing by default

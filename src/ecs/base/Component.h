@@ -23,7 +23,7 @@ namespace ECS {
     }
 
   private:
-    friend class Manager; // Manager can read and write the entityID attribute.
+    friend class EntityManager; // Manager can read and write the entityID attribute.
     EntityID entityID;
   };
 }
