@@ -31,7 +31,7 @@ namespace ECS {
     auto component = std::find_if(components.begin(), components.end(), [&](const T& comp) {
       return comp.GetID() == entity;
     });
-    assert(component != components.end() && "Entity " && entity && " does not exist within the component vector.");
+    ASSERT(component != components.end(), "Entity " << entity << " does not exist within the component vector.");
     return *component;
   }
 

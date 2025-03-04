@@ -113,6 +113,7 @@
     <ClInclude Include="src\gui\LoggingWindow.h" />
     <ClInclude Include="src\logging\ImGuiTextBufferSink.h" />
     <ClInclude Include="src\logging\Logging.h" />
+    <ClInclude Include="src\utility\AssertMsgFormat.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ecs\base\EntityManager.cpp" />

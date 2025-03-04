@@ -9,6 +9,7 @@
 #include <memory>
 #include <queue>
 
+#include "../../utility/AssertMsgFormat.h"
 #include "Component.h"
 #include "ComponentVector.h"
 #include "ECSTypes.h"
@@ -18,7 +19,9 @@ namespace ECS {
   class EntityManager {
   public:
     EntityManager();
-    ~EntityManager();
+    ~EntityManager() = default;
+
+    const EntityID CreateEntity();
 
   private:
     uint16_t entityCount;

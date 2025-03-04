@@ -6,6 +6,7 @@
 #pragma once
 #include <vector>
 
+#include "../../utility/AssertMsgFormat.h"
 #include "ECSTypes.h"
 
 namespace ECS {

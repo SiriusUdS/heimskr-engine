@@ -38,6 +38,7 @@
     <ClInclude Include="src\core\Engine.h" />
     <ClInclude Include="src\ecs\base\ComponentVector.h" />
     <ClInclude Include="src\ecs\base\EntityManager.h" />
+    <ClInclude Include="src\utility\AssertMsgFormat.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gui\ControlsWindow.cpp">

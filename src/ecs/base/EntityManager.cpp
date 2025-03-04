@@ -13,6 +13,14 @@ namespace ECS {
     }
   }
 
-  EntityManager::~EntityManager() { }
+  //EntityManager::~EntityManager() { }
+
+  const EntityID EntityManager::CreateEntity() {
+    ASSERT(entityCount < MAX_ENTITIES, "Maximum number of entities reached (" << MAX_ENTITIES << ").");
+    const EntityID entityID = availableEntityIDs.front();
+    availableEntityIDs.pop();
+    entityCount++;
+    return entityID;
+  }
 
 }
