@@ -8,8 +8,8 @@
 #include <GLFW/glfw3.h>
 
 namespace HeimskrEngine {
-  class EngineTimer {
 
+  class EngineTimer {
   public:
     EngineTimer(const EngineTimer& other) = delete;
     EngineTimer& operator=(const EngineTimer&) = delete;

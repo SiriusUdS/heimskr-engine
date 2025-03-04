@@ -10,7 +10,6 @@
 namespace HeimskrEngine {
 
   class EngineEvents {
-
   public:
     EngineEvents(const EngineEvents& other) = delete;
     EngineEvents& operator=(const EngineEvents&) = delete;

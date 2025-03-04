@@ -27,7 +27,6 @@ namespace HeimskrEngine {
   typedef std::unique_ptr<GLFWwindow, DestroyableGLFWwindow> UniqueGLFWwindow;
 
   class Engine {
-
   public:
     Engine(const Engine& other) = delete;
     Engine& operator=(const Engine&) = delete;

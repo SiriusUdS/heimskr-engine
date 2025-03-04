@@ -102,9 +102,10 @@
     <ClInclude Include="src\core\Engine.h" />
     <ClInclude Include="src\core\EngineEvents.h" />
     <ClInclude Include="src\core\EngineTimer.h" />
-    <ClInclude Include="src\ecs\base\Types.h" />
+    <ClInclude Include="src\ecs\base\Component.h" />
+    <ClInclude Include="src\ecs\base\ECSTypes.h" />
+    <ClInclude Include="src\ecs\base\System.h" />
     <ClInclude Include="src\ecs\ECS.h" />
-    <ClInclude Include="src\engine\Engine.h" />
     <ClInclude Include="src\gui\ControlsWindow.h" />
     <ClInclude Include="src\gui\ImGuiManager.h" />
     <ClInclude Include="src\gui\LoggingWindow.h" />
@@ -115,7 +116,7 @@
     <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="src\core\EngineEvents.cpp" />
     <ClCompile Include="src\core\EngineTimer.cpp" />
-    <ClCompile Include="src\engine\Engine.cpp" />
+    <ClCompile Include="src\ecs\base\System.cpp" />
     <ClCompile Include="src\gui\ControlsWindow.cpp" />
     <ClCompile Include="src\gui\ImGuiManager.cpp" />
     <ClCompile Include="src\gui\LoggingWindow.cpp" />
