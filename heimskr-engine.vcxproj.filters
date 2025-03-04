@@ -36,6 +36,7 @@
     <ClInclude Include="src\ecs\base\Component.h" />
     <ClInclude Include="src\ecs\base\System.h" />
     <ClInclude Include="src\core\Engine.h" />
+    <ClInclude Include="src\ecs\base\ComponentVector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gui\ControlsWindow.cpp">
@@ -59,5 +60,6 @@
     <ClCompile Include="src\core\EngineTimer.cpp" />
     <ClCompile Include="src\ecs\base\System.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
+    <ClCompile Include="src\ecs\base\ComponentVector.cpp" />
   </ItemGroup>
 </Project>

@@ -98,6 +98,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ecs\base\ComponentVector.h" />
     <ClInclude Include="src\core\Core.h" />
     <ClInclude Include="src\core\Engine.h" />
     <ClInclude Include="src\core\EngineEvents.h" />
@@ -113,6 +114,7 @@
     <ClInclude Include="src\logging\Logging.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ecs\base\ComponentVector.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="src\core\EngineEvents.cpp" />
     <ClCompile Include="src\core\EngineTimer.cpp" />
