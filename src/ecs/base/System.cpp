@@ -52,6 +52,13 @@ namespace ECS {
   }
 
   /**
+   * \brief Render the system once per frame.
+   */
+  void System::Render() {
+    // Do nothing by default
+  }
+
+  /**
    * \brief Destroy the system. This is called once at the end of the program.
    */
   void System::Destroy() {
