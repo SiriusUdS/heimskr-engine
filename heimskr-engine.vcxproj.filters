@@ -39,6 +39,7 @@
     <ClInclude Include="src\ecs\base\ComponentVector.h" />
     <ClInclude Include="src\ecs\base\EntityManager.h" />
     <ClInclude Include="src\utility\AssertMsgFormat.h" />
+    <ClInclude Include="src\ecs\base\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gui\ControlsWindow.cpp">
@@ -64,5 +65,6 @@
     <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="src\ecs\base\ComponentVector.cpp" />
     <ClCompile Include="src\ecs\base\EntityManager.cpp" />
+    <ClCompile Include="src\ecs\base\Entity.cpp" />
   </ItemGroup>
 </Project>

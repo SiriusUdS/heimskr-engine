@@ -1,3 +1,8 @@
+/**
+ * @file AssertMsgFormat.h
+ * @brief File for assert related macros.
+ */
+
 #pragma once
 
 #include <iostream>
