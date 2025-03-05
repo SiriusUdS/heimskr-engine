@@ -44,6 +44,7 @@ namespace ECS {
       component.entityID = entity;
       GetEntitySignature(entity)->insert(GetComponentTypeID<T>());
       auto test = GetComponentVector<T>();
+      // TODO: Check why the line below causes trouble. See E7 of documentation
       //GetComponentVector<T>()->Insert(component);
       UpdateEntityTargetSystems(entity);
     }
@@ -59,6 +60,7 @@ namespace ECS {
 
       const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
       GetEntitySignature(entity)->erase(componentTypeID);
+      // TODO: Check why the line below causes trouble. See E7 of documentation
       //GetComponentVector<T>()->Erase(componentTypeID);
 
       // Since we removed a component, we need to check if the entity still has a signature that matches an existing system.
