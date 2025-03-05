@@ -16,7 +16,7 @@ namespace ECS {
   /**
    * \brief Update all systems.
    */
-  void EntityManager::Update() {
+  void EntityManager::Update() const {
     for (auto& system : registeredSystems) {
       system.second->Update();
     }
@@ -25,7 +25,7 @@ namespace ECS {
   /**
    * \brief Render systems that need rendering.
    */
-  void EntityManager::Render() {
+  void EntityManager::Render() const {
     for (auto& system : registeredSystems) {
       system.second->Render();
     }
@@ -81,8 +81,6 @@ namespace ECS {
     component.entityID = entity;    
     GetEntitySignature(entity)->insert(GetComponentTypeID<T>());
     GetComponentVector<T>()->Insert(component);
-    //const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    //entitySignatures.at(entity).insert(componentTypeID);
     UpdateEntityTargetSystems(entity);
   }
 
@@ -96,8 +94,6 @@ namespace ECS {
     ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
 
     const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    //entitySignatures.at(entity).erase(componentTypeID);
-    //GetComponentVector<T>()->Erase(component);
     GetEntitySignature(entity)->erase(componentTypeID);
     GetComponentVector<T>()->Erase(componentTypeID);
 
@@ -114,8 +110,6 @@ namespace ECS {
   template<typename T>
   T& EntityManager::GetComponent(const EntityID entity) {
     ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
-    //const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    //ASSERT(entitySignatures.at(entity).find(componentTypeID) != entitySignatures.at(entity).end(), "The entity (" << entity << ") does not have the component (" << componentTypeID << ").");
     return GetComponentVector<T>()->Get(entity);
   }
 
@@ -129,9 +123,6 @@ namespace ECS {
   const bool EntityManager::HasComponent(const EntityID entity) const {
     ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
     return GetEntitySignature(entity)->count(GetComponentTypeID<T>()) > 0;
-    //const EntitySignature signature = entitySignatures.at(entity);
-    //const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    //return signature.count(componentTypeID) > 0;
   }
 
   /**

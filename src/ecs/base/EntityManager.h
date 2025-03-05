@@ -21,8 +21,8 @@ namespace ECS {
     EntityManager();
     ~EntityManager() = default;
 
-    void Update();
-    void Render();
+    void Update() const;
+    void Render() const;
 
     const EntityID CreateEntity();
     void EntityManager::DestroyEntity(const EntityID entity);
