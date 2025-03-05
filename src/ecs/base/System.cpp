@@ -5,6 +5,8 @@
 
 #include "System.h"
 
+#include <iostream>
+
 namespace ECS {
 
   /**
@@ -30,14 +32,6 @@ namespace ECS {
   }
 
   /**
-   * \brief Add a component to the system signature. This will allow the system to process entities with this component.
-   */
-  template<typename T>
-  void System::AddComponentSignature() {
-    signature.insert(GetComponentTypeID<T>());
-  }
-
-  /**
    * \brief Start and initialize the system. This is called once at the start of the program.
    */
   void System::Start() {
@@ -48,7 +42,10 @@ namespace ECS {
    * \brief Update the system once per frame.
    */
   void System::Update() {
-    // Do nothing by default
+    for (const EntityID entity : entities) {
+      std::cout << entity << " ";
+    }
+    std::cout << '\n';
   }
 
   /**

@@ -4,6 +4,9 @@
  */
 
 #pragma once
+
+#include <iostream>
+
 #include "ECSTypes.h"
 
 namespace ECS {
@@ -17,8 +20,14 @@ namespace ECS {
     void RemoveEntity(const EntityID entity);
 
     EntitySignature GetSignature() const;
+
+    /**
+     * \brief Add a component to the system signature. This will allow the system to process entities with this component.
+     */
     template<typename T>
-    void AddComponentSignature();
+    void AddComponentSignature() {
+      signature.insert(GetComponentTypeID<T>());
+    }
 
     virtual void Start();
     virtual void Update();

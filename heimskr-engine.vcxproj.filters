@@ -63,7 +63,6 @@
     <ClCompile Include="src\core\EngineTimer.cpp" />
     <ClCompile Include="src\ecs\base\System.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
-    <ClCompile Include="src\ecs\base\ComponentVector.cpp" />
     <ClCompile Include="src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="src\ecs\base\Entity.cpp" />
   </ItemGroup>

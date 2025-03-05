@@ -65,120 +65,6 @@ namespace ECS {
   }
 
   /**
-   * \brief Add a component to an entity.
-   * \tparam T The component type.
-   * \tparam Args The arguments to pass to the component constructor.
-   * \param[in] entity The entity to add the component to.
-   * \param[in] args The arguments to pass to the component constructor.
-   */
-  template<typename T, typename... Args>
-  void EntityManager::AddComponent(const EntityID entity, Args&&... args) {
-    ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
-    ASSERT(GetEntitySignature(entity)->size() < MAX_COMPONENTS, "The entity (" << entity << " has the maximum amount of component (" << MAX_COMPONENTS << ").");
-
-    // Creates an instance of the component of type T with the constructor that matches the arguments passed with the parameter args
-    T component(std::forward<Args>(args)...);
-    component.entityID = entity;    
-    GetEntitySignature(entity)->insert(GetComponentTypeID<T>());
-    GetComponentVector<T>()->Insert(component);
-    UpdateEntityTargetSystems(entity);
-  }
-
-  /**
-   * \brief Remove a component from an entity.
-   * \tparam T The component type.
-   * \param[in] entity The entity to remove the component from.
-   */
-  template<typename T>
-  void EntityManager::RemoveComponent(const EntityID entity) {
-    ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
-
-    const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    GetEntitySignature(entity)->erase(componentTypeID);
-    GetComponentVector<T>()->Erase(componentTypeID);
-
-    // Since we removed a component, we need to check if the entity still has a signature that matches an existing system.
-    UpdateEntityTargetSystems(entity);
-  }
-
-  /**
-   * \brief Get a component from an entity.
-   * \tparam T The component type.
-   * \param[in] entity The entity to get the component from.
-   * \return Reference to the component.
-   */
-  template<typename T>
-  T& EntityManager::GetComponent(const EntityID entity) {
-    ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
-    return GetComponentVector<T>()->Get(entity);
-  }
-
-  /**
-   * \brief Check if an entity has a component.
-   * \tparam T The component type.
-   * \param[in] entity The entity to check.
-   * \return True if the entity has the component, false otherwise.
-   */
-  template<typename T>
-  const bool EntityManager::HasComponent(const EntityID entity) const {
-    ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
-    return GetEntitySignature(entity)->count(GetComponentTypeID<T>()) > 0;
-  }
-
-  /**
-   * \brief Register a system of type T.
-   * \tparam T The system type.
-   */
-  template<typename T>
-  void EntityManager::RegisterSystem() {
-    const SystemTypeID systemTypeID = GetSystemTypeID<T>();
-    ASSERT(registeredSystems.find(systemTypeID) == registeredSystems.end(), "The system of type " << systemTypeID << " already exists.");
-    auto system = std::make_shared<T>();
-
-    for (EntityID entity = 0; entity < entityCount; entity++) {
-      AddEntityToSystem(entity, *system);
-    }
-    system->Start();
-    registeredSystems[systemTypeID] = std::move(system);
-  }
-
-  /**
-   * \brief Unregister a system of type T.
-   * \tparam T The system type.
-   */
-  template<typename T>
-  void EntityManager::UnRegisterSystem() {
-    const SystemTypeID systemTypeID = GetSystemTypeID<T>();
-    ASSERT(registeredSystems.find(systemTypeID) != registeredSystems.end(), "The system of type " << systemTypeID << " was not found.");
-    registeredSystems.erase(systemTypeID);
-  }
-
-  /**
-   * \brief Add a component of type T vector to the map.
-   * \tparam T The component type.
-   */
-  template<typename T>
-  void EntityManager::AddComponentVector() {
-    const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    ASSERT(components.find(componentTypeID) == components.end(), "The component vector for type " << componentTypeID << " already exists.");
-    components[componentTypeID] = std::move(std::make_shared<ComponentVector<T>>());
-  }
-
-  /**
-   * \brief Get a component vector of type T.
-   * \tparam T The component type.
-   * \return The component vector of type T.
-   */
-  template<typename T>
-  std::shared_ptr<ComponentVector<T>> EntityManager::GetComponentVector() {
-    const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
-    if (components.count(componentTypeID) == 0) {
-      AddComponentVector<T>();
-    }
-    return std::static_pointer_cast<ComponentVector<T>>(components.at(componentTypeID));
-  }
-
-  /**
    * \brief Add an entity signature to the map.
    * \param[in] entity The entity to add the signature to.
    */
@@ -203,7 +89,7 @@ namespace ECS {
    */
   void EntityManager::UpdateEntityTargetSystems(const EntityID entity) {
     for (auto& system : registeredSystems) {
-      AddEntityToSystem(entity, *system.second);
+      AddEntityToSystem(entity, system.second.get());
     }
   }
 
@@ -212,11 +98,11 @@ namespace ECS {
    * \param[in] entity The entity to add to the system.
    * \param[in] system The system to add the entity to.
    */
-  void EntityManager::AddEntityToSystem(const EntityID entity, System& system) {
-    if (IsInSystem(entity, system.signature)) {
-      system.entities.insert(entity);
+  void EntityManager::AddEntityToSystem(const EntityID entity, System* system) {
+    if (IsInSystem(entity, system->signature)) {
+      system->entities.insert(entity);
     } else {
-      system.entities.erase(entity);
+      system->entities.erase(entity);
     }
   }
 

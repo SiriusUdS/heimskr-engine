@@ -9,36 +9,18 @@ namespace ECS {
 
   Entity::Entity(const EntityID id, EntityManager* manager): id(id), manager(manager) { }
 
+  /**
+   * \brief Destroy the entity.
+   */
   void Entity::Destroy() const {
     manager->DestroyEntity(id);
   }
 
+  /**
+   * \brief Get the ID of the entity.
+   * \return The ID of the entity.
+   */
   const EntityID Entity::GetID() const {
     return id;
-  }
-
-  template<typename T, typename... Args>
-  void Entity::AddComponent(Args&&... args) {
-    manager->AddComponent<T>(id, std::forward<Args>(args)...);
-  }
-
-  template<typename T>
-  void Entity::AddComponent(T& component) {
-    manager->AddComponent<T>(id, component);
-  }
-
-  template<typename T>
-  T& Entity::GetComponent() {
-    return manager->GetComponent<T>(id);
-  }
-
-  template<typename T>
-  void Entity::RemoveComponent() const {
-    manager->RemoveComponent<T>(id);
-  }
-
-  template<typename T>
-  bool Entity::HasComponent() const {
-    return manager->HasComponent<T>(id);
   }
 }
