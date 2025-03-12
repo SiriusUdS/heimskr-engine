@@ -27,6 +27,7 @@ namespace ECS {
     const EntityID CreateEntity();
     void DestroyEntity(const EntityID entity);
 
+
     /**
      * \brief Add a component to an entity.
      * \tparam T The component type.
@@ -44,10 +45,10 @@ namespace ECS {
       component.entityID = entity;
       GetEntitySignature(entity)->insert(GetComponentTypeID<T>());
       auto test = GetComponentVector<T>();
-      // TODO: Check why the line below causes trouble. See E7 of documentation
-      //GetComponentVector<T>()->Insert(component);
+      GetComponentVector<T>()->Add(component);
       UpdateEntityTargetSystems(entity);
     }
+
 
     /**
      * \brief Remove a component from an entity.
@@ -60,12 +61,12 @@ namespace ECS {
 
       const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
       GetEntitySignature(entity)->erase(componentTypeID);
-      // TODO: Check why the line below causes trouble. See E7 of documentation
-      //GetComponentVector<T>()->Erase(componentTypeID);
+      GetComponentVector<T>()->Erase(componentTypeID);
 
       // Since we removed a component, we need to check if the entity still has a signature that matches an existing system.
       UpdateEntityTargetSystems(entity);
     }
+
 
     /**
      * \brief Get a component from an entity.
@@ -79,6 +80,7 @@ namespace ECS {
       return GetComponentVector<T>()->Get(entity);
     }
 
+
     /**
      * \brief Check if an entity has a component.
      * \tparam T The component type.
@@ -90,6 +92,7 @@ namespace ECS {
       ASSERT(entity < MAX_ENTITIES, "This entity (" << entity << ") is out of range.");
       return GetEntitySignature(entity)->count(GetComponentTypeID<T>()) > 0;
     }
+
 
     /**
      * \brief Register a system of type T.
@@ -107,6 +110,7 @@ namespace ECS {
       system->Start();
       registeredSystems[systemTypeID] = std::move(system);
     }
+
 
     /**
      * \brief Unregister a system of type T.
@@ -132,19 +136,21 @@ namespace ECS {
       components[componentTypeID] = std::move(std::make_shared<ComponentVector<T>>());
     }
 
+
     /**
      * \brief Get a component vector of type T.
      * \tparam T The component type.
      * \return The component vector of type T.
      */
     template<typename T>
-    std::shared_ptr<ComponentVector<T>> GetComponentVector() {
+    std::shared_ptr<ComponentVector<T>>& GetComponentVector() {
       const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
       if (components.count(componentTypeID) == 0) {
         AddComponentVector<T>();
       }
       return std::static_pointer_cast<ComponentVector<T>>(components.at(componentTypeID));
     }
+
 
     void AddEntitySignature(const EntityID entity);
     std::shared_ptr<EntitySignature> GetEntitySignature(const EntityID entity);

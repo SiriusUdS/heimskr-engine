@@ -12,6 +12,7 @@ namespace HeimskrEngine {
    */
   void WindowShouldCloseCallback(GLFWwindow* window);
 
+
   /**
    * @brief Initializes the engine events
    */
@@ -20,6 +21,7 @@ namespace HeimskrEngine {
     glfwSetWindowCloseCallback(&window, WindowShouldCloseCallback);
   }
 
+
   /**
    * @brief Updates the engine events with glfw
    */
@@ -27,10 +29,11 @@ namespace HeimskrEngine {
     glfwPollEvents();
   }
 
+
   /**
-     * @brief Callback function for when the window should close
-     * @param window The window that should close
-     */
+   * @brief Callback function for when the window should close
+   * @param window The window that should close
+   */
   void WindowShouldCloseCallback(GLFWwindow* window) {
     Core.Stop();
   }

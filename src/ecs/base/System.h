@@ -21,6 +21,7 @@ namespace ECS {
 
     EntitySignature GetSignature() const;
 
+
     /**
      * \brief Add a component to the system signature. This will allow the system to process entities with this component.
      */

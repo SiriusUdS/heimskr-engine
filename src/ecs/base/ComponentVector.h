@@ -19,6 +19,7 @@ namespace ECS {
     virtual void Erase(const EntityID entity) {}
   };
 
+
   /**
    * \brief Vector wrapper class for components.
    * \tparam T Type of the component.
@@ -27,7 +28,8 @@ namespace ECS {
   class ComponentVector : public IComponentVector {
   public:
     ComponentVector() = default;
-    virtual ~ComponentVector() override = default;
+    ~ComponentVector() override = default;
+
 
     /**
      * \brief Add a component to the vector if the vector doesnt contain it since an entity cannot have duplicate components attched to it.
@@ -35,13 +37,14 @@ namespace ECS {
      */
     template<typename T>
     void Add(const T& component) {
-      auto component = std::find_if(components.begin(), components.end(), [&](const T& comp) {
-        return comp.GetID() == component.GetID();
-        });
-      if (component != components.end()) {
+      auto componentIterator = std::find_if(components.begin(), components.end(), [&](const T& comp) {
+        return comp.GetEntityID() == component.GetEntityID();
+      });
+      if (componentIterator != components.end()) {
         components.push_back(component);
       }
     }
+
 
     /**
      * \brief Gets a component from the vector.
@@ -50,12 +53,13 @@ namespace ECS {
      */
     template<typename T>
     T& Get(const EntityID entity) {
-      auto component = std::find_if(components.begin(), components.end(), [&](const T& comp) {
+      auto componentIterator = std::find_if(components.begin(), components.end(), [&](const T& comp) {
         return comp.GetID() == entity;
-        });
-      ASSERT(component != components.end(), "Entity " << entity << " does not exist within the component vector.");
-      return *component;
+      });
+      ASSERT(componentIterator != components.end(), "Entity " << entity << " does not exist within the component vector.");
+      return *componentIterator;
     }
+
 
     /**
      * \brief Erase a component from the vector.
@@ -63,11 +67,11 @@ namespace ECS {
      */
     template<typename T>
     void Erase(const EntityID entity) {
-      auto component = std::find_if(components.begin(), components.end(), [&](const T& comp) {
+      auto componentIterator = std::find_if(components.begin(), components.end(), [&](const T& comp) {
         return comp.GetID() == entity;
-        });
-      if (component != components.end()) {
-        components.erase(component);
+      });
+      if (componentIterator != components.end()) {
+        components.erase(componentIterator);
       }
     }
 

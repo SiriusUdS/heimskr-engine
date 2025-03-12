@@ -14,6 +14,7 @@ namespace ECS {
     Component() = default;
     virtual ~Component() = default;
 
+
     /**
      * \brief Returns the entity ID of the component.
      * \return The entity ID of the component.

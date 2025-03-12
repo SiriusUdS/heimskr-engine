@@ -14,6 +14,7 @@ namespace HeimskrEngine {
 
   }
 
+
   /**
     * @brief Updates the engine timer
     */
@@ -21,6 +22,7 @@ namespace HeimskrEngine {
     deltaTime = glfwGetTime() - lastFrame;
     lastFrame = glfwGetTime();
   }
+
 
   /**
     * @brief Returns the delta time of the engine timer

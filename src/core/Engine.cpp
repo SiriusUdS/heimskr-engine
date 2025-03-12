@@ -15,6 +15,7 @@ namespace HeimskrEngine {
     Initialize();
   }
 
+
   /**
    * @brief Destructor of the Engine class
    */
@@ -22,6 +23,7 @@ namespace HeimskrEngine {
     glfwDestroyWindow(window.get());
     glfwTerminate();
   }
+
 
   /**
    * @brief Stops the main loop of the engine
@@ -31,6 +33,7 @@ namespace HeimskrEngine {
     isRunning = false;
     glfwSetWindowShouldClose(window.get(), GLFW_TRUE);
   }
+
 
   /**
    * @brief Updates the engine window and events
@@ -44,6 +47,7 @@ namespace HeimskrEngine {
     glfwPollEvents();
     isRunning = !glfwWindowShouldClose(window.get());
   }
+
 
   /**
   * @brief Initializes the engine
@@ -86,6 +90,7 @@ namespace HeimskrEngine {
     isRunning = true;
   }
 
+
   /**
    * @brief Checks whether the engine is running or not.
    * @return bool
@@ -93,6 +98,7 @@ namespace HeimskrEngine {
   bool Engine::IsRunning() const {
     return isRunning;
   }
+
 
   /**
    * @brief Gets the window handle of the engine.
@@ -102,6 +108,7 @@ namespace HeimskrEngine {
     return *window;
   }
 
+
   /**
    * @brief Gets the window width.
    * @return int
@@ -109,6 +116,7 @@ namespace HeimskrEngine {
   int Engine::GetWindowWidth() const {
     return windowWidth;
   }
+
 
   /**
    * @brief Gets the window height.

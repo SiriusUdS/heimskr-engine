@@ -21,6 +21,7 @@ namespace ECS {
   using ComponentTypeID = uint16_t;
   using EntitySignature = std::set<ComponentTypeID>;
 
+
   /**
    * @brief Get the next component type ID.
    * @return The next component type ID.
@@ -30,6 +31,7 @@ namespace ECS {
     return typeID++;
   }
 
+
   /**
    * @brief Get the next system type ID.
    * @return The next system type ID.
@@ -38,6 +40,7 @@ namespace ECS {
     static SystemTypeID typeID = 0u;
     return typeID++;
   }
+
 
   /**
    * @brief Creates an ID if T inherits Component. If it hasn't been created yet for this component, the ID will created.
@@ -51,6 +54,7 @@ namespace ECS {
     static const ComponentTypeID typeID = GetNextComponentTypeID();
     return typeID;
   }
+
 
   /**
    * @brief Creates an ID if T inherits System. If it hasn't been created yet for this system, the ID will created.

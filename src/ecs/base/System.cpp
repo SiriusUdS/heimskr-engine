@@ -16,12 +16,14 @@ namespace ECS {
     entities.insert(entity);
   }
 
+
   /**
    * \brief Remove an entity from the system.
    */
   void System::RemoveEntity(const EntityID entity) {
     entities.erase(entity);
   }
+
 
   /**
    * \brief Get the signature of the system. This is a set of component types that the system is interested in.
@@ -31,12 +33,14 @@ namespace ECS {
     return signature;
   }
 
+
   /**
    * \brief Start and initialize the system. This is called once at the start of the program.
    */
   void System::Start() {
     // Do nothing by default
   }
+
 
   /**
    * \brief Update the system once per frame.
@@ -48,12 +52,14 @@ namespace ECS {
     std::cout << '\n';
   }
 
+
   /**
    * \brief Render the system once per frame.
    */
   void System::Render() {
     // Do nothing by default
   }
+
 
   /**
    * \brief Destroy the system. This is called once at the end of the program.

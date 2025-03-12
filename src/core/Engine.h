@@ -16,6 +16,7 @@ namespace HeimskrEngine {
   constexpr int ENGINE_WINDOW_HEIGHT = 600;
   constexpr const char* ENGINE_WINDOW_TITLE = "Heimskr Engine";
 
+
   /**
    * @brief Custom deleter for GLFWwindow unique_ptr since GLFWwindow is written in C.
    */

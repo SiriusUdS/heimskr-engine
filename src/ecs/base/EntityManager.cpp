@@ -13,6 +13,7 @@ namespace ECS {
     }
   }
 
+
   /**
    * \brief Update all systems.
    */
@@ -22,6 +23,7 @@ namespace ECS {
     }
   }
 
+
   /**
    * \brief Render systems that need rendering.
    */
@@ -30,6 +32,7 @@ namespace ECS {
       system.second->Render();
     }
   }
+
 
   /**
    * \brief Create a new entity with the next available ID in the queue.
@@ -43,6 +46,7 @@ namespace ECS {
     entityCount++;
     return entityID;
   }
+
 
   /**
    * \brief Destroy an entity and removes it from all systems and components.
@@ -64,6 +68,7 @@ namespace ECS {
     availableEntityIDs.push(entity);
   }
 
+
   /**
    * \brief Add an entity signature to the map.
    * \param[in] entity The entity to add the signature to.
@@ -72,6 +77,7 @@ namespace ECS {
     ASSERT(entitySignatures.find(entity) == entitySignatures.end(), "The signature for entity " << entity << " already exists.");
     entitySignatures[entity] = std::move(std::make_shared<EntitySignature>());
   }
+
 
   /**
    * \brief Get an entity signature.
@@ -83,6 +89,7 @@ namespace ECS {
     return entitySignatures.at(entity);
   }
 
+
   /**
    * \brief Update the target systems of an entity.
    * \param[in] entity The entity to update the target systems of.
@@ -92,6 +99,7 @@ namespace ECS {
       AddEntityToSystem(entity, system.second.get());
     }
   }
+
 
   /**
    * \brief Add an entity to a system.
@@ -105,6 +113,7 @@ namespace ECS {
       system->entities.erase(entity);
     }
   }
+
 
   /**
    * \brief Check if an entity is in a system.

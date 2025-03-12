@@ -20,6 +20,7 @@ namespace ECS {
 
     const EntityID GetID() const;
 
+
     /**
      * \brief Add a component to the entity.
      * \tparam T The type of the component.
@@ -31,6 +32,7 @@ namespace ECS {
       manager->AddComponent<T>(id, std::forward<Args>(args)...);
     }
 
+
     /**
      * \brief Add a component to the entity.
      * \tparam T The type of the component.
@@ -40,6 +42,7 @@ namespace ECS {
     void AddComponent(T& component) {
       manager->AddComponent<T>(id, component);
     }
+
 
     /**
      * \brief Get a component from the entity.
@@ -51,6 +54,7 @@ namespace ECS {
       return manager->GetComponent<T>(id);
     }
 
+
     /**
      * \brief Remove a component from the entity.
      * \tparam T The type of the component.
@@ -59,6 +63,7 @@ namespace ECS {
     void RemoveComponent() const {
       manager->RemoveComponent<T>(id);
     }
+
 
     /**
      * \brief Check if the entity has a component.
