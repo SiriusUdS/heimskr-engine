@@ -11,7 +11,7 @@ void LoggingWindow::draw() {
     ImGui::Checkbox("Auto Scroll", &_autoScroll);
     ImGui::SameLine();
     if (ImGui::Button("Add test log")) {
-        GCS_LOG_INFO("This is a test");
+        HEIMSKR_LOG_INFO("This is a test");
     }
     ImGui::SameLine();
     if (ImGui::Button("Clear")) {

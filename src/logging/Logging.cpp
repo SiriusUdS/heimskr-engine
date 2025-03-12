@@ -11,7 +11,7 @@ namespace Logging {
 
 void Logging::initSpdLog() {
     const auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-    const auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/gcs-log.txt");
+    const auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/heimskr-log.txt");
     _sinks = { console_sink, file_sink };
     updateSpdLog();
 }
