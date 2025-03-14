@@ -130,6 +130,7 @@
     <ClCompile Include="editor\src\gui\LoggingWindow.cpp" />
     <ClCompile Include="common\src\logging\ImGuiTextBufferSink.cpp" />
     <ClCompile Include="common\src\logging\Logging.cpp" />
+    <ClCompile Include="engine\test\ecs.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

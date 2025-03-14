@@ -2,12 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 
-#include "../../editor/src/gui/ImGuiManager.h"
 #include "../../common/src/logging/Logging.h"
+#include "../../editor/src/gui/ImGuiManager.h"
 
 #include "../engine/src/core/Core.h"
-#include "../engine/src/ecs/base/EntityManager.h"
 #include "../engine/src/ecs/base/Entity.h"
+#include "../engine/src/ecs/base/EntityManager.h"
 
 class TestComponent1 : public ECS::Component {
   //int A = 5;
@@ -70,6 +70,8 @@ int main() {
     HeimskrEngine::Events.Update();
     HeimskrEngine::Core.Update();
   }
+
+  return EXIT_SUCCESS;
 
   //HeimskrEngine::Core.Run();
 	//Logging::initSpdLog();

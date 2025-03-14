@@ -65,5 +65,6 @@
     <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="engine\src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="engine\src\ecs\base\Entity.cpp" />
+    <ClCompile Include="engine\test\ecs.cpp" />
   </ItemGroup>
 </Project>
