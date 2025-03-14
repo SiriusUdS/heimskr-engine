@@ -3,7 +3,7 @@
 
 #include <spdlog/sinks/base_sink.h>
 
-#include "LoggingWindow.h"
+#include "../../editor/src/gui/LoggingWindow.h"
 
 class ImGuiTextBufferSink : public spdlog::sinks::base_sink<std::mutex> {
 public:

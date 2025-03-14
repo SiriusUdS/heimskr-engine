@@ -9,7 +9,7 @@
 #include <memory>
 #include <queue>
 
-#include "../../utility/AssertMsgFormat.h"
+#include "../../common/src/utility/AssertMsgFormat.h"
 #include "Component.h"
 #include "ComponentVector.h"
 #include "ECSTypes.h"

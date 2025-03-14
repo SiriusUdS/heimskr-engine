@@ -1,6 +1,6 @@
 #include "LoggingWindow.h"
 
-#include "Logging.h"
+#include "../../common/src/logging/Logging.h"
 
 LoggingWindow::LoggingWindow() : _autoScroll(true) {
     clear();

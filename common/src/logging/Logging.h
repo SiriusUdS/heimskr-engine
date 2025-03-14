@@ -3,7 +3,7 @@
 
 #include <spdlog/spdlog.h>
 
-#include "LoggingWindow.h"
+#include "../../editor/src/gui/LoggingWindow.h"
 
 namespace Logging {
     void initSpdLog();

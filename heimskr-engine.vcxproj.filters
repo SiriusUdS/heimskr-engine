@@ -12,58 +12,58 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\gui\ControlsWindow.h">
+    <ClInclude Include="editor\src\gui\ControlsWindow.h">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\ImGuiManager.h">
+    <ClInclude Include="editor\src\gui\ImGuiManager.h">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui\LoggingWindow.h">
+    <ClInclude Include="editor\src\gui\LoggingWindow.h">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="src\logging\ImGuiTextBufferSink.h">
+    <ClInclude Include="common\src\logging\ImGuiTextBufferSink.h">
       <Filter>logging</Filter>
     </ClInclude>
-    <ClInclude Include="src\logging\Logging.h">
+    <ClInclude Include="common\src\logging\Logging.h">
       <Filter>logging</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\Core.h" />
+    <ClInclude Include="engine\src\core\Core.h" />
+    <ClInclude Include="engine\src\core\Engine.h" />
+    <ClInclude Include="engine\src\core\EngineEvents.h" />
+    <ClInclude Include="engine\src\core\EngineTimer.h" />
+    <ClInclude Include="engine\src\ecs\base\ECSTypes.h" />
+    <ClInclude Include="engine\src\ecs\ECS.h" />
+    <ClInclude Include="engine\src\ecs\base\Component.h" />
+    <ClInclude Include="engine\src\ecs\base\System.h" />
     <ClInclude Include="src\core\Engine.h" />
-    <ClInclude Include="src\core\EngineEvents.h" />
-    <ClInclude Include="src\core\EngineTimer.h" />
-    <ClInclude Include="src\ecs\base\ECSTypes.h" />
-    <ClInclude Include="src\ecs\ECS.h" />
-    <ClInclude Include="src\ecs\base\Component.h" />
-    <ClInclude Include="src\ecs\base\System.h" />
-    <ClInclude Include="src\core\Engine.h" />
-    <ClInclude Include="src\ecs\base\ComponentVector.h" />
-    <ClInclude Include="src\ecs\base\EntityManager.h" />
-    <ClInclude Include="src\utility\AssertMsgFormat.h" />
-    <ClInclude Include="src\ecs\base\Entity.h" />
+    <ClInclude Include="engine\src\ecs\base\ComponentVector.h" />
+    <ClInclude Include="engine\src\ecs\base\EntityManager.h" />
+    <ClInclude Include="common\src\utility\AssertMsgFormat.h" />
+    <ClInclude Include="engine\src\ecs\base\Entity.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\gui\ControlsWindow.cpp">
+    <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
       <Filter>gui</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui\ImGuiManager.cpp">
+    <ClCompile Include="editor\src\gui\ImGuiManager.cpp">
       <Filter>gui</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui\LoggingWindow.cpp">
+    <ClCompile Include="editor\src\gui\LoggingWindow.cpp">
       <Filter>gui</Filter>
     </ClCompile>
-    <ClCompile Include="src\logging\ImGuiTextBufferSink.cpp">
+    <ClCompile Include="common\src\logging\ImGuiTextBufferSink.cpp">
       <Filter>logging</Filter>
     </ClCompile>
-    <ClCompile Include="src\logging\Logging.cpp">
+    <ClCompile Include="common\src\logging\Logging.cpp">
       <Filter>logging</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="engine\src\core\Engine.cpp" />
+    <ClCompile Include="engine\src\core\EngineEvents.cpp" />
+    <ClCompile Include="engine\src\core\EngineTimer.cpp" />
+    <ClCompile Include="engine\src\ecs\base\System.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
-    <ClCompile Include="src\core\EngineEvents.cpp" />
-    <ClCompile Include="src\core\EngineTimer.cpp" />
-    <ClCompile Include="src\ecs\base\System.cpp" />
-    <ClCompile Include="src\core\Engine.cpp" />
-    <ClCompile Include="src\ecs\base\EntityManager.cpp" />
-    <ClCompile Include="src\ecs\base\Entity.cpp" />
+    <ClCompile Include="engine\src\ecs\base\EntityManager.cpp" />
+    <ClCompile Include="engine\src\ecs\base\Entity.cpp" />
   </ItemGroup>
 </Project>

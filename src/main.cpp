@@ -2,12 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 
-#include "ImGuiManager.h"
-#include "Logging.h"
+#include "../../editor/src/gui/ImGuiManager.h"
+#include "../../common/src/logging/Logging.h"
 
-#include "core/Core.h"
-#include "ecs/base/EntityManager.h"
-#include "ecs/base/Entity.h"
+#include "../engine/src/core/Core.h"
+#include "../engine/src/ecs/base/EntityManager.h"
+#include "../engine/src/ecs/base/Entity.h"
 
 class TestComponent1 : public ECS::Component {
   //int A = 5;
