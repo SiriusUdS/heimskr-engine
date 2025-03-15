@@ -29,6 +29,11 @@
       std::shared_ptr<spdlog::logger> spdLogger;
     };
 
+    /**
+     * \brief Convert a spdlog log level (enum value) to a string for display purposes
+     * \param level The severity of the log message
+     * \return The string representation of the log level
+     */
     inline const char* SpdlogLevelToString(spdlog::level::level_enum level) {
       switch (level) {
       case spdlog::level::trace:

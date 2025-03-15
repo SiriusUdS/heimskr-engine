@@ -3,6 +3,7 @@
 #include <imgui.h>
 
 #include "../common/src/logging/Logger.h"
+
 #include "../../common/src/logging/Logging.h"
 #include "../../editor/src/gui/ImGuiManager.h"
 

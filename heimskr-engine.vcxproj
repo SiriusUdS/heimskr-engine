@@ -106,6 +106,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="common\src\logging\Logger.h" />
+    <ClInclude Include="common\src\Types.h" />
     <ClInclude Include="engine\src\ecs\base\Entity.h" />
     <ClInclude Include="engine\src\ecs\base\EntityManager.h" />
     <ClInclude Include="engine\src\ecs\base\ComponentVector.h" />

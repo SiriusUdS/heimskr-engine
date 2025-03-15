@@ -35,12 +35,12 @@
     <ClInclude Include="engine\src\ecs\ECS.h" />
     <ClInclude Include="engine\src\ecs\base\Component.h" />
     <ClInclude Include="engine\src\ecs\base\System.h" />
-    <ClInclude Include="src\core\Engine.h" />
     <ClInclude Include="engine\src\ecs\base\ComponentVector.h" />
     <ClInclude Include="engine\src\ecs\base\EntityManager.h" />
     <ClInclude Include="common\src\utility\AssertMsgFormat.h" />
     <ClInclude Include="engine\src\ecs\base\Entity.h" />
     <ClInclude Include="common\src\logging\Logger.h" />
+    <ClInclude Include="common\src\Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
@@ -63,7 +63,6 @@
     <ClCompile Include="engine\src\core\EngineEvents.cpp" />
     <ClCompile Include="engine\src\core\EngineTimer.cpp" />
     <ClCompile Include="engine\src\ecs\base\System.cpp" />
-    <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="engine\src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="engine\src\ecs\base\Entity.cpp" />
     <ClCompile Include="engine\test\ecs.cpp" />
