@@ -50,7 +50,7 @@ namespace ECS {
    */
   template <typename T>
   static const ComponentTypeID GetComponentTypeID() {
-    static_assert((std::is_base_of<Component, T>::value && !std::is_same<Component, T>::value), "T must inherit from the Component class.");
+    static_assert((std::is_base_of_v<Component, T> && !std::is_same_v<Component, T>), "T must inherit from the Component class.");
     static const ComponentTypeID typeID = GetNextComponentTypeID();
     return typeID;
   }
@@ -64,7 +64,7 @@ namespace ECS {
    */
   template <typename T>
   static const SystemTypeID GetSystemTypeID() {
-    static_assert((std::is_base_of<System, T>::value && !std::is_same<System, T>::value), "T must inherit from the System class.");
+    static_assert((std::is_base_of_v<System, T> && !std::is_same_v<System, T>), "T must inherit from the System class.");
     static const SystemTypeID typeID = GetNextSystemTypeID();
     return typeID;
   }

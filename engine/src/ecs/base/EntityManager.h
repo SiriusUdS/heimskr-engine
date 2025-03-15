@@ -143,7 +143,7 @@ namespace ECS {
      * \return The component vector of type T.
      */
     template<typename T>
-    std::shared_ptr<ComponentVector<T>>& GetComponentVector() {
+    std::shared_ptr<ComponentVector<T>> GetComponentVector() {
       const ComponentTypeID componentTypeID = GetComponentTypeID<T>();
       if (components.count(componentTypeID) == 0) {
         AddComponentVector<T>();

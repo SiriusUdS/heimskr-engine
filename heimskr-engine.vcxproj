@@ -107,6 +107,9 @@
   <ItemGroup>
     <ClInclude Include="common\src\logging\Logger.h" />
     <ClInclude Include="common\src\Types.h" />
+    <ClInclude Include="engine\includes\application\Application.h" />
+    <ClInclude Include="engine\includes\application\Context.h" />
+    <ClInclude Include="engine\includes\application\Interface.h" />
     <ClInclude Include="engine\src\ecs\base\Entity.h" />
     <ClInclude Include="engine\src\ecs\base\EntityManager.h" />
     <ClInclude Include="engine\src\ecs\base\ComponentVector.h" />
@@ -126,6 +129,7 @@
     <ClInclude Include="common\src\utility\AssertMsgFormat.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="engine\includes\application\Interface.cpp" />
     <ClCompile Include="engine\src\ecs\base\Entity.cpp" />
     <ClCompile Include="engine\src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="engine\src\core\Engine.cpp" />
