@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 
+#include "../common/src/logging/Logger.h"
 #include "../../common/src/logging/Logging.h"
 #include "../../editor/src/gui/ImGuiManager.h"
 
@@ -60,6 +61,13 @@ int main() {
   manager.AddComponent<TestComponent2>(entity3);
 
   manager.Update();
+
+  HEIMSKR_DEBUG("HELLO THIS DEBUG TEST MON");
+  HEIMSKR_TRACE("HELLO THIS TRACE TEST MON");
+  HEIMSKR_INFO("HELLO THIS INFO TEST MON");
+  HEIMSKR_WARN("HELLO THIS WARN TEST MON");
+  HEIMSKR_ERROR("HELLO THIS ERROR TEST MON");
+  HEIMSKR_CRITICAL("HELLO THIS CRITICAL TEST MON");
 
   HeimskrEngine::Core.Initialize();
   HeimskrEngine::Timer.Initialize();

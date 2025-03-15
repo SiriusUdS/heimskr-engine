@@ -40,6 +40,7 @@
     <ClInclude Include="engine\src\ecs\base\EntityManager.h" />
     <ClInclude Include="common\src\utility\AssertMsgFormat.h" />
     <ClInclude Include="engine\src\ecs\base\Entity.h" />
+    <ClInclude Include="common\src\logging\Logger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">

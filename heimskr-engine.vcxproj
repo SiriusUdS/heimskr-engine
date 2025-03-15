@@ -72,6 +72,7 @@
       <AdditionalOptions>/utf-8 /wd4005 /wd26498 /wd26800 %(AdditionalOptions)</AdditionalOptions>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <PreprocessorDefinitions>HEIMSKR_ENGINE_ENABLE_LOGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +105,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="common\src\logging\Logger.h" />
     <ClInclude Include="engine\src\ecs\base\Entity.h" />
     <ClInclude Include="engine\src\ecs\base\EntityManager.h" />
     <ClInclude Include="engine\src\ecs\base\ComponentVector.h" />
