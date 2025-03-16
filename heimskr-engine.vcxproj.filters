@@ -44,6 +44,7 @@
     <ClInclude Include="engine\includes\application\Interface.h" />
     <ClInclude Include="common\src\logging\Logger.h" />
     <ClInclude Include="common\src\Types.h" />
+    <ClInclude Include="engine\includes\common\Event.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
@@ -69,6 +70,5 @@
     <ClCompile Include="engine\src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="engine\src\ecs\base\Entity.cpp" />
     <ClCompile Include="engine\test\ecs.cpp" />
-    <ClCompile Include="engine\includes\application\Interface.cpp" />
   </ItemGroup>
 </Project>

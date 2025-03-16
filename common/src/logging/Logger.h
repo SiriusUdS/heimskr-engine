@@ -51,11 +51,10 @@
       case spdlog::level::off:
         return "OFF";
       case spdlog::level::n_levels:
-      default:
         return "";
       }
+      return "";
     }
-
   }
 
   #define HEIMSKR_LOG(level, ...) ::HeimskrEngine::Logger::GetInstance()->log(level, "[{}] {}", ::HeimskrEngine::SpdlogLevelToString(level), __VA_ARGS__)
