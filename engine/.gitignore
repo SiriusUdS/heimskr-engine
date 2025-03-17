@@ -422,7 +422,6 @@ doc/
 /installed*/
 /vcpkg_installed*/
 /packages/
-/vcpkg/
 /scripts/buildsystems/tmp/
 #ignore custom triplets
 /triplets/*
