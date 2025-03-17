@@ -84,7 +84,7 @@ namespace ECS {
    * \param[in] entity The entity to get the signature from.
    * \return The entity signature.
    */
-  std::shared_ptr<EntitySignature> EntityManager::GetEntitySignature(const EntityID entity) {
+  std::shared_ptr<EntitySignature> EntityManager::GetEntitySignature(const EntityID entity) const {
     ASSERT(entitySignatures.find(entity) != entitySignatures.end(), "The signature for entity " << entity << " was not found.");
     return entitySignatures.at(entity);
   }

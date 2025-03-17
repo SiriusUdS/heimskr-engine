@@ -9,7 +9,7 @@
 #include <memory>
 #include <queue>
 
-#include "../../common/src/utility/AssertMsgFormat.h"
+#include "../utility/AssertMsgFormat.h"
 #include "Component.h"
 #include "ComponentVector.h"
 #include "ECSTypes.h"
@@ -153,7 +153,7 @@ namespace ECS {
 
 
     void AddEntitySignature(const EntityID entity);
-    std::shared_ptr<EntitySignature> GetEntitySignature(const EntityID entity);
+    std::shared_ptr<EntitySignature> GetEntitySignature(const EntityID entity) const;
     void UpdateEntityTargetSystems(const EntityID entity);
     void AddEntityToSystem(const EntityID entity, System* system);
     bool IsInSystem(const EntityID entity, const EntitySignature& signatures);

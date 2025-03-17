@@ -3,14 +3,14 @@
 #include <imgui.h>
 
 #include <entt/entt.hpp>
-#include "../common/src/logging/Logger.h"
+#include "logging/Logger.h"
 
-#include "../../common/src/logging/Logging.h"
+#include "logging/Logging.h"
 #include "../../editor/src/gui/ImGuiManager.h"
 
-#include "../engine/src/core/Core.h"
-#include "../engine/src/ecs/base/Entity.h"
-#include "../engine/src/ecs/base/EntityManager.h"
+#include "core/Core.h"
+#include "ecs/base/Entity.h"
+#include "ecs/base/EntityManager.h"
 
 class TestComponent1 : public ECS::Component {
   //int A = 5;
