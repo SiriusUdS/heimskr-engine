@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 
+#include <entt/entt.hpp>
 #include "../common/src/logging/Logger.h"
 
 #include "../../common/src/logging/Logging.h"

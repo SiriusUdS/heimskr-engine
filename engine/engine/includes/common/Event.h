@@ -121,10 +121,11 @@ namespace HeimskrEngine {
       tasks.push(std::move(task));
     }
 
+
     /**
      * \brief Poll the event queue and call the listeners for the events in the queue.
      */
-    void PollEvent() {
+    void PollEvents() {
       for (auto& [_, ptr] : registry) {
         auto reg = ConvertToRegistry<char>(ptr);
 

@@ -11,7 +11,7 @@ namespace HeimskrEngine {
   public:
     Application() {
       context = new AppContext();
-      ID = TypeID<Application>();
+      id = TypeID<Application>();
     }
 
     ~Application() override {
@@ -22,10 +22,12 @@ namespace HeimskrEngine {
     }
 
     /**
-     * \brief Update every layers in the context.
+     * \brief Update every layers in the context and poll for events.
      */
-     void RunContext() const {
+    [[noreturn]]
+    void RunContext() const {
       while (true) {
+        context->EventDispatcher.PollEvents();
         for (const auto& layer : context->Layers) {
           layer->OnUpdate();
         }

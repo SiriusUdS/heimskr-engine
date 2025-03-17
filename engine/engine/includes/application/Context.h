@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "Interface.h"
+#include "../common/Event.h"
 
 namespace HeimskrEngine {
   class AppInterface;
@@ -29,5 +30,6 @@ namespace HeimskrEngine {
      * \brief Layers are object can be seem as extensions adding functionalities to the engine. They allow the user to manipulate the engine's unused functionalities.
      */
     std::vector<AppInterface*> Layers;
+    EventDispatcher EventDispatcher;
   };
 }
