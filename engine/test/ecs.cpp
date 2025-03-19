@@ -1,5 +1,5 @@
-#include "../ecs/base/EntityManager.h"
-#include "../ecs/base/Entity.h"
+#include "../src/ecs/base/EntityManager.h"
+#include "../src/ecs/base/Entity.h"
 
 class TestComponent1 : public ECS::Component {
   //int A = 5;

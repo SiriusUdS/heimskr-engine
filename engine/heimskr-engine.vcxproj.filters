@@ -27,7 +27,7 @@
     <ClInclude Include="src\logging\Logging.h">
       <Filter>logging</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\Core.h" />
+    <ClInclude Include="src\common\Core.h" />
     <ClInclude Include="src\core\Engine.h" />
     <ClInclude Include="src\core\EngineEvents.h" />
     <ClInclude Include="src\core\EngineTimer.h" />
@@ -39,12 +39,13 @@
     <ClInclude Include="src\ecs\base\EntityManager.h" />
     <ClInclude Include="src\utility\AssertMsgFormat.h" />
     <ClInclude Include="src\ecs\base\Entity.h" />
-    <ClInclude Include="includes\application\Application.h" />
-    <ClInclude Include="includes\application\Context.h" />
-    <ClInclude Include="includes\application\Interface.h" />
+    <ClInclude Include="src\application\Application.h" />
+    <ClInclude Include="src\application\Context.h" />
+    <ClInclude Include="src\application\Interface.h" />
     <ClInclude Include="src\logging\Logger.h" />
     <ClInclude Include="src\common\Types.h" />
-    <ClInclude Include="includes\common\Event.h" />
+    <ClInclude Include="src\common\Event.h" />
+    <ClInclude Include="src\HeimskrEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
@@ -62,13 +63,13 @@
     <ClCompile Include="src\logging\Logging.cpp">
       <Filter>logging</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\HeimskrEngine.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
     <ClCompile Include="src\core\EngineEvents.cpp" />
     <ClCompile Include="src\core\EngineTimer.cpp" />
     <ClCompile Include="src\ecs\base\System.cpp" />
     <ClCompile Include="src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="src\ecs\base\Entity.cpp" />
-    <ClCompile Include="src\test\ecs.cpp" />
+    <ClCompile Include="test\ecs.cpp" />
   </ItemGroup>
 </Project>

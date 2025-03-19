@@ -7,9 +7,8 @@
 #pragma once
 
 #include "Context.h"
-#include "../../../common/src/utility/AssertMsgFormat.h"
-#include "../../../common/src/Types.h"
-#include "../../../common/src/logging/Logger.h"
+#include "Logger.h"
+#include "../common/Types.h"
 
 namespace HeimskrEngine {
   class AppInterface {

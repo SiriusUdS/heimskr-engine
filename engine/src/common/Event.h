@@ -9,7 +9,7 @@
 #include <queue>
 #include <ranges>
 
-#include "../../../../common/src/Types.h"
+#include "Types.h"
 
 namespace HeimskrEngine {
 

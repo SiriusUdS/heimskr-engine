@@ -8,7 +8,7 @@
 #include "logging/Logging.h"
 #include "../../editor/src/gui/ImGuiManager.h"
 
-#include "core/Core.h"
+#include "common/Core.h"
 #include "ecs/base/Entity.h"
 #include "ecs/base/EntityManager.h"
 
