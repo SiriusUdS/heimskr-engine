@@ -45,6 +45,7 @@ int main() {
   std::cout << id << std::endl;
 
   //int asd = HeimskrEngine::ENGINE_WINDOW_HEIGHT;
-  auto atest = HeimskrEngine::Engine::GetInstance().IsRunning();
+  //auto atest = HeimskrEngine::Engine::GetInstance().IsRunning();
+  auto teatae = HeimskrEngine::Core.IsRunning();
   return EXIT_SUCCESS;
 }
