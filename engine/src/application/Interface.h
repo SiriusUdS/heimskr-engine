@@ -51,11 +51,11 @@ namespace HeimskrEngine {
         return nullptr;
       }
 
-      Layer layer = new Layer(std::forward<Args>(args)...);
+      Layer* layer = new Layer(std::forward<Args>(args)...);
       context->Layers.push_back(layer);
-      layer.id = TypeID<Layer>();
-      layer.context = context;
-      layer.OnStart();
+      layer->id = TypeID<Layer>();
+      layer->context = context;
+      layer->OnStart();
       return layer;
     }
 
@@ -70,8 +70,8 @@ namespace HeimskrEngine {
 
       context->EventDispatcher.PostTask([this] {
         context->Layers.erase(std::remove_if(context->Layers.begin(), context->Layers.end(), [this](auto& layer) {
-          if (layer.id == TypeID<Layer>()) {
-            context->EventDispatcher.EraseListener(layer.id);
+          if (layer->id == TypeID<Layer>()) {
+            context->EventDispatcher.EraseListener(layer->id);
             if (layer != nullptr) {
               delete layer;
               layer = nullptr;

@@ -7,7 +7,7 @@
 #include "Interface.h"
 
 namespace HeimskrEngine {
-  class Application : AppInterface {
+  class Application : public AppInterface {
   public:
     Application() {
       context = new AppContext();
