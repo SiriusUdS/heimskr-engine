@@ -71,14 +71,17 @@ int main() {
   HEIMSKR_ERROR("HELLO THIS ERROR TEST MON");
   HEIMSKR_CRITICAL("HELLO THIS CRITICAL TEST MON");
 
+  //HeimskrEngine::Engine::GetInstance().Initialize();
   HeimskrEngine::Core.Initialize();
   HeimskrEngine::Timer.Initialize();
   HeimskrEngine::Events.Initialize();
 
+  //while (HeimskrEngine::Engine::GetInstance().IsRunning()) {
   while (HeimskrEngine::Core.IsRunning()) {
     HeimskrEngine::Timer.Update();
     HeimskrEngine::Events.Update();
     HeimskrEngine::Core.Update();
+    //HeimskrEngine::Engine::GetInstance().Update();
   }
 
   return EXIT_SUCCESS;

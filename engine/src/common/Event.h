@@ -8,6 +8,7 @@
 #include <memory>
 #include <queue>
 #include <ranges>
+#include <unordered_map>
 
 #include "Types.h"
 
@@ -17,7 +18,7 @@ namespace HeimskrEngine {
   class EventListener {
     using CallbackFunction = std::function<void(const Event&)>;
   public:
-    EventListener(CallbackFunction&& cb, uint32_t listenerId) : Callback(std::move(cb), Id(listenerId)) {}
+    EventListener(CallbackFunction&& cb, uint32_t listenerId) : Callback(std::move(cb)), Id(listenerId) {}
 
   public:
     CallbackFunction Callback;
@@ -41,9 +42,9 @@ namespace HeimskrEngine {
     EventDispatcher() = default;
     virtual ~EventDispatcher() {
       // Reminder since unused to syntax. It just means that we are iterating over the values of the registry map.
-      for (const auto& ptr : registry | std::views::values) {
+      for (auto& [_, eventRegPtr] : registry) {
         // We cast the void* of the Event as a char since we don't know the type of the event and just use char as a placeholder.
-        auto reg = ConvertToRegistry<char>(ptr);
+        auto reg = ConvertToRegistry<char>(eventRegPtr);
         if (reg == nullptr) {
           continue;
         }
@@ -86,8 +87,8 @@ namespace HeimskrEngine {
      * \param listenerId The unique identifier for the listener.
      */
     void EraseListener(uint32_t listenerId) {
-      for (auto& [_, registry] : registry) {
-        auto& listeners = ConvertToRegistry<int8_t>(registry)->Listeners;
+      for (auto& [_, eventRegPtr] : registry) {
+        auto& listeners = ConvertToRegistry<int8_t>(eventRegPtr)->Listeners;
         listeners.erase(std::remove_if(listeners.begin(), listeners.end(), [&](const auto& listener) {
           return listener->Id == listenerId;
         }), listeners.end());
@@ -126,8 +127,8 @@ namespace HeimskrEngine {
      * \brief Poll the event queue and call the listeners for the events in the queue.
      */
     void PollEvents() {
-      for (auto& [_, ptr] : registry) {
-        auto reg = ConvertToRegistry<char>(ptr);
+      for (auto& [_, eventRegPtr] : registry) {
+        auto reg = ConvertToRegistry<char>(eventRegPtr);
 
         while (!reg->Queue.empty()) {
           for (auto& listener : reg->Listeners) {
@@ -168,7 +169,7 @@ namespace HeimskrEngine {
         return ConvertToRegistry<Event>(iterator->second);
       }
       // If the event registry does not exist, create a new one and store it in the registry.
-      EventRegistry registry = new EventRegistry<Event>();
+      EventRegistry<Event> registry = new EventRegistry<Event>();
       registry[TypeID<Event>()] = registry;
       return registry;
     }

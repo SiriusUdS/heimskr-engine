@@ -7,7 +7,7 @@
 #pragma once
 
 #include "Context.h"
-#include "Logger.h"
+#include "../logging/Logger.h"
 #include "../common/Types.h"
 
 namespace HeimskrEngine {

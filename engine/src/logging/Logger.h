@@ -69,7 +69,7 @@
 #else
   #define HEIMSKR_TRACE
   #define HEIMSKR_DEBUG
-  #define HEIMSKE_INFO
+  #define HEIMSKR_INFO
   #define HEIMSKR_WARN
   #define HEIMSKR_ERROR
   #define HEIMSKR_CRITICAL

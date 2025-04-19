@@ -17,7 +17,8 @@ namespace HeimskrEngine {
    * @brief Initializes the engine events
    */
   void EngineEvents::Initialize() {
-    GLFWwindow& window = Core.GetWindow();
+    //GLFWwindow& window = Core.GetWindow();
+    GLFWwindow& window = Engine::GetInstance().GetWindow();
     glfwSetWindowCloseCallback(&window, WindowShouldCloseCallback);
   }
 
@@ -35,6 +36,7 @@ namespace HeimskrEngine {
    * @param window The window that should close
    */
   void WindowShouldCloseCallback(GLFWwindow* window) {
-    Core.Stop();
+    //Core.Stop();
+    Engine::GetInstance().Stop();
   }
 }

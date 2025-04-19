@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "fmt",
+    "entt",
+    "glad",
+    "glfw3",
+    {
+      "name": "hello-imgui",
+      "features": [
+        "glfw-binding",
+        "opengl3-binding"
+      ]
+    },
+    "spdlog"
+  ]
+}
