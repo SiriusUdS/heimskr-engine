@@ -63,7 +63,7 @@ namespace HeimskrEngine {
      */
     template<typename Event, typename CallbackFunc>
     void AttachListener(CallbackFunc&& cb, uint32_t listenerId) {
-      EventListener<Event> listener = std::make_unique<EventListener<Event>>(std::move<CallbackFunc>(cb), listenerId);
+      auto listener = std::make_unique<EventListener<Event>>(std::forward<CallbackFunc>(cb), listenerId);
       GetRegistry<Event>()->Listeners.push_back(std::move(listener));
     }
 
@@ -104,7 +104,7 @@ namespace HeimskrEngine {
      */
     template<typename Event, typename... Args>
     void PostEvent(Args&&... args) {
-      EventRegistry<Event> reg = GetRegistry<Event>();
+      EventRegistry<Event>* reg = GetRegistry<Event>();
       if (reg->Listeners.empty()) {
         return;
       }
@@ -169,9 +169,9 @@ namespace HeimskrEngine {
         return ConvertToRegistry<Event>(iterator->second);
       }
       // If the event registry does not exist, create a new one and store it in the registry.
-      EventRegistry<Event> registry = new EventRegistry<Event>();
-      registry[TypeID<Event>()] = registry;
-      return registry;
+      EventRegistry<Event>* reg = new EventRegistry<Event>();
+      registry[TypeID<Event>()] = reg;
+      return reg;
     }
 
   private:

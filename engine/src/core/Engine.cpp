@@ -54,6 +54,8 @@ namespace HeimskrEngine {
   * @return void
   */
   void Engine::Initialize() {
+    // TODO: Put this back on
+    return;
     windowWidth = ENGINE_WINDOW_WIDTH;
     windowHeight = ENGINE_WINDOW_HEIGHT;
 

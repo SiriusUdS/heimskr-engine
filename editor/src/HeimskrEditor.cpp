@@ -20,15 +20,27 @@
 //#include "../../engine/src/HeimskrEngine.h"
 //#include "../../engine/src/logging/Logger.h"
 
+class TestEvent {
+public:
+  int32_t deta = 69;
+};
 
 class TestLayer : public HeimskrEngine::AppInterface {
+private:
+  int32_t count = 0;
 public:
   void OnUpdate() override {
     HEIMSKR_INFO("OnUpdate() called");
+    if (count++ == 10) {
+      PostEvent<TestEvent>();
+    }
   }
 
   void OnStart() override {
-    HEIMSKR_TRACE("OnStart() called");
+    AttachCallback<TestEvent>([this] (auto e) {
+      HEIMSKR_TRACE(fmt::format("TestEvent: {}", e.deta));
+      DetachLayer<TestLayer>();
+    });
   }
 };
 
@@ -52,7 +64,7 @@ int main() {
   HeimskrEngine::Application* application = new HeimskrEngine::Application();
   application->AttachLayer<TestLayer>();
   auto testar = application->GetLayer<TestLayer>();
-  application->DetachLayer<TestLayer>();
+  //application->DetachLayer<TestLayer>();
   application->RunContext();
   //test();
   return EXIT_SUCCESS;

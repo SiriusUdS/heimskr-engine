@@ -46,6 +46,9 @@
     <ClInclude Include="src\common\Types.h" />
     <ClInclude Include="src\common\Event.h" />
     <ClInclude Include="src\HeimskrEngine.h" />
+    <ClInclude Include="src\window\Events.h" />
+    <ClInclude Include="src\window\Inputs.h" />
+    <ClInclude Include="src\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
@@ -71,5 +74,6 @@
     <ClCompile Include="src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="src\ecs\base\Entity.cpp" />
     <ClCompile Include="test\ecs.cpp" />
+    <ClCompile Include="src\window\Window.cpp" />
   </ItemGroup>
 </Project>
