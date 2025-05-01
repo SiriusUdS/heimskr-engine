@@ -49,6 +49,11 @@
     <ClInclude Include="src\window\Events.h" />
     <ClInclude Include="src\window\Inputs.h" />
     <ClInclude Include="src\window\Window.h" />
+    <ClInclude Include="src\graphics\Renderer.h" />
+    <ClInclude Include="src\graphics\buffers\Frame.h" />
+    <ClInclude Include="src\graphics\buffers\Mesh.h" />
+    <ClInclude Include="src\graphics\buffers\Vertex.h" />
+    <ClInclude Include="src\graphics\GLMCommon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">

@@ -2,6 +2,7 @@
   "dependencies": [
     "entt",
     "glad",
+    "glew",
     "glfw3",
     {
       "name": "hello-imgui",
@@ -10,6 +11,7 @@
         "opengl3-binding"
       ]
     },
+    "glm",
     "spdlog"
   ]
 }
