@@ -55,6 +55,9 @@
     <ClInclude Include="src\graphics\buffers\Vertex.h" />
     <ClInclude Include="src\graphics\GLMCommon.h" />
     <ClInclude Include="src\graphics\utilities\Quad.h" />
+    <ClInclude Include="src\graphics\shaders\Shader.h" />
+    <ClInclude Include="src\graphics\shaders\PBR.h" />
+    <ClInclude Include="src\graphics\shaders\Final.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
@@ -82,5 +85,12 @@
     <ClCompile Include="test\ecs.cpp" />
     <ClCompile Include="src\window\Window.cpp" />
     <ClCompile Include="src\graphics\buffers\Frame.cpp" />
+    <ClCompile Include="src\graphics\shaders\Shader.cpp" />
+    <ClCompile Include="src\graphics\shaders\PBR.cpp" />
+    <ClCompile Include="src\graphics\shaders\Final.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\final.glsl" />
+    <None Include="resources\shaders\pbr.glsl" />
   </ItemGroup>
 </Project>

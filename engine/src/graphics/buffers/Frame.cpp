@@ -111,9 +111,13 @@ namespace HeimskrEngine {
   void FrameBuffer::CreateColorAttachment() {
     glGenTextures(1, &color);
     glBindTexture(GL_TEXTURE_2D, color);
+    // Specify the texture minification filter when a texture needs to be displayed in a smaller size than its original size using a linear interpolation algorithm.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    // Specify the texture magnification filter when a texture needs to be displayed in a larger size than its original size using a linear interpolation algorithm.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // Specify the texture wrap mode when the texture coordinates are outside the range of [0, 1] horizontally. The GL_CLAMP_TO_EDGE mode will clamp the texture coordinates to the edge of the texture.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    // Specify the texture wrap mode when the texture coordinates are outside the range of [0, 1] vertically. The GL_CLAMP_TO_EDGE mode will clamp the texture coordinates to the edge of the texture.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, width, height, 0, GL_RGBA, GL_FLOAT, nullptr);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, color, 0);
