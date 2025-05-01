@@ -26,9 +26,24 @@ namespace HeimskrEngine {
 
 
     /**
+     * \brief Draws the mesh with the given mode.
+     * \param mode The mode to draw the mesh with. See OpenGL documentation for more information.
+     */
+    void Draw(uint32_t mode) const {
+      glBindVertexArray(bufferID);
+      if (indexCount != 0) {
+        glDrawElements(mode, indexCount, GL_UNSIGNED_INT, nullptr);
+        glBindVertexArray(0);
+      }
+      glDrawArrays(mode, 0, vertexCount);
+      glBindVertexArray(0);
+    }
+
+  private:
+    /**
      * \brief Initializes the mesh with the given data.
      * \param data The mesh data to initialize the mesh with.
-     */
+    */
     void InitializeMesh(const MeshData<Vertex>& data) {
       if (data.Vertices.empty()) {
         HEIMSKR_ERROR("Mesh data is empty. Cannot create mesh.");
@@ -38,15 +53,18 @@ namespace HeimskrEngine {
       vertexCount = static_cast<uint32_t>(data.Vertices.size());
       indexCount = static_cast<uint32_t>(data.Indices.size());
 
+      // Note: The VAO contains the VBO and EBO (IBO) and their configuration. Used primarily for optimization purposes.
       glGenVertexArrays(1, &bufferID);
       glBindVertexArray(bufferID);
 
+      // Note: The VBO contains the vertex related data.
       uint32_t vertexBufferObject = 0u;
       glGenBuffers(1, &vertexBufferObject);
       glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
       glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(Vertex), data.Vertices.data(), GL_STATIC_DRAW);
 
       if (indexCount != 0) {
+        // Note: The EBO (or IBO) contains the indices of the vertices to be drawn. It is used to optimize the drawing process by reducing the amount of data sent to the GPU by skipping the duplicated vertices.
         uint32_t elementBufferObject = 0u;
         glGenBuffers(1, &elementBufferObject);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBufferObject);
@@ -72,21 +90,6 @@ namespace HeimskrEngine {
     }
 
 
-    /**
-     * \brief Draws the mesh with the given mode.
-     * \param mode The mode to draw the mesh with. See OpenGL documentation for more information.
-     */
-    void Draw(uint32_t mode) const {
-      glBindVertexArray(bufferID);
-      if (indexCount != 0) {
-        glDrawElements(mode, indexCount, GL_UNSIGNED_INT, nullptr);
-        glBindVertexArray(0);
-      }
-      glDrawArrays(mode, 0, vertexCount);
-      glBindVertexArray(0);
-    }
-
-  private:
     /**
      * \brief Sets attributes for the vertex buffer.
      * \param index The index of the attribute to set.

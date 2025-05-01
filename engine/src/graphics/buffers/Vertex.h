@@ -30,6 +30,7 @@ namespace HeimskrEngine {
     glm::vec4 Color = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
   };
 
+
   /**
    * \brief Represents a vertex used for shading with lighting and texture mapping (UV).
    */
@@ -38,6 +39,7 @@ namespace HeimskrEngine {
     glm::vec3 Normal = glm::vec3(0.0f, 0.0f, 0.0f);
     glm::vec2 UVs = glm::vec2(0.0f, 0.0f);
   };
+
 
   /**
    * \brief Contains the vertex buffer data for a mesh.

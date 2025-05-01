@@ -54,6 +54,7 @@
     <ClInclude Include="src\graphics\buffers\Mesh.h" />
     <ClInclude Include="src\graphics\buffers\Vertex.h" />
     <ClInclude Include="src\graphics\GLMCommon.h" />
+    <ClInclude Include="src\graphics\utilities\Quad.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
@@ -80,5 +81,6 @@
     <ClCompile Include="src\ecs\base\Entity.cpp" />
     <ClCompile Include="test\ecs.cpp" />
     <ClCompile Include="src\window\Window.cpp" />
+    <ClCompile Include="src\graphics\buffers\Frame.cpp" />
   </ItemGroup>
 </Project>
