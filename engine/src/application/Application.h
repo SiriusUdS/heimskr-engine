@@ -26,8 +26,7 @@ namespace HeimskrEngine {
      */
     [[noreturn]]
     void RunContext() const {
-      while (true) {
-        context->EventDispatcher.PollEvents();
+      while (context->Window->PollEvents()) {
         for (const auto& layer : context->Layers) {
           layer->OnUpdate();
         }

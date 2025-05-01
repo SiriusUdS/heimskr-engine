@@ -7,7 +7,7 @@
 
 #include "Events.h"
 #include "Inputs.h"
-#include "Logger.h"
+#include "../logging/Logger.h"
 
 namespace HeimskrEngine {
   class Window {

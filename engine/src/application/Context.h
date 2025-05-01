@@ -9,13 +9,17 @@
 
 #include "Interface.h"
 #include "../common/Event.h"
+#include "../window/Window.h"
 
 namespace HeimskrEngine {
   class AppInterface;
 
   class AppContext {
   public:
-    AppContext() = default;
+    AppContext() {
+      Window = std::make_unique<class Window>(&EventDispatcher, 1280, 720, "Heimskr Engine");
+    }
+
     ~AppContext() {
       for (auto& layer : Layers) {
         if (layer == nullptr) {
@@ -30,6 +34,7 @@ namespace HeimskrEngine {
      * \brief Layers are object can be seem as extensions adding functionalities to the engine. They allow the user to manipulate the engine's unused functionalities.
      */
     std::vector<AppInterface*> Layers;
+    std::unique_ptr<Window> Window;
     EventDispatcher EventDispatcher;
   };
 }

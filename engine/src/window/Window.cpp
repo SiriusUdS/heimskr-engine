@@ -13,7 +13,7 @@ namespace HeimskrEngine {
    * \param height The height of the window
    * \param title The title of the window
    */
-  Window::Window(EventDispatcher* dispatcher, int32_t width, int32_t height, const char* title) {
+  Window::Window(EventDispatcher* dispatcher, int32_t width, int32_t height, const char* title) : dispatcher(dispatcher) {
     if (!glfwInit()) {
       HEIMSKR_CRITICAL("Failed to initialize GLFW");
       exit(EXIT_FAILURE);

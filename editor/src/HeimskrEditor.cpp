@@ -30,16 +30,19 @@ private:
   int32_t count = 0;
 public:
   void OnUpdate() override {
-    HEIMSKR_INFO("OnUpdate() called");
-    if (count++ == 10) {
-      PostEvent<TestEvent>();
-    }
+    //HEIMSKR_INFO("OnUpdate() called");
+    //if (count++ == 10) {
+    //  PostEvent<TestEvent>();
+    //}
   }
 
   void OnStart() override {
-    AttachCallback<TestEvent>([this] (auto e) {
-      HEIMSKR_TRACE(fmt::format("TestEvent: {}", e.deta));
-      DetachLayer<TestLayer>();
+    //AttachCallback<TestEvent>([this] (auto e) {
+    //  HEIMSKR_TRACE(fmt::format("TestEvent: {}", e.deta));
+    //  DetachLayer<TestLayer>();
+    //});
+    AttachCallback<HeimskrEngine::MouseMotionEvent>([this](auto e) {
+      HEIMSKR_TRACE(fmt::format("Mouse x: {}, y: {}", e.TargetX, e.TargetY));
     });
   }
 };
@@ -62,10 +65,44 @@ int main() {
   //auto atest = HeimskrEngine::Engine::GetInstance().IsRunning();
   //auto teatae = HeimskrEngine::Core.IsRunning();
   HeimskrEngine::Application* application = new HeimskrEngine::Application();
+
+  application->AttachCallback<HeimskrEngine::KeyPressEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Key pressed: {}", e.Key));
+  });
+
+  application->AttachCallback<HeimskrEngine::KeyRepeatEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Key repeated: {}", e.Key));
+  });
+
+  application->AttachCallback<HeimskrEngine::KeyReleaseEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Key released: {}", e.Key));
+  });
+
+  application->AttachCallback<HeimskrEngine::WindowResizeEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Window resized to x: {}, y: {}", e.Width, e.Height));
+  });
+
+  application->AttachCallback<HeimskrEngine::MouseWheelEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Scrolled to x: {}, y: {}", e.ScrollX, e.ScrollY));
+  }); 
+
+  application->AttachCallback<HeimskrEngine::MouseDownEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Pressed mouse button: {}", e.Button));
+  });
+
+  application->AttachCallback<HeimskrEngine::MouseReleaseEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Released mouse button: {}", e.Button));
+  });
+
+  application->AttachCallback<HeimskrEngine::MouseDragEvent>([](auto e) {
+    HEIMSKR_TRACE(fmt::format("Mouse dragged with deltaX: {}, deltaY: {}", e.DeltaX, e.DeltaY));
+  });
+
   application->AttachLayer<TestLayer>();
-  auto testar = application->GetLayer<TestLayer>();
-  //application->DetachLayer<TestLayer>();
   application->RunContext();
-  //test();
+
+  //application->AttachLayer<TestLayer>();
+  //auto testar = application->GetLayer<TestLayer>();
+  //application->RunContext();
   return EXIT_SUCCESS;
 }
