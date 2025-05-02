@@ -114,7 +114,9 @@
     <ClInclude Include="src\graphics\buffers\Mesh.h" />
     <ClInclude Include="src\graphics\buffers\Vertex.h" />
     <ClInclude Include="src\graphics\Renderer.h" />
+    <ClInclude Include="src\graphics\utilities\Camera3D.h" />
     <ClInclude Include="src\graphics\utilities\Quad.h" />
+    <ClInclude Include="src\graphics\utilities\Transform3D.h" />
     <ClInclude Include="src\HeimskrEngine.h" />
     <ClInclude Include="src\logging\Logger.h" />
     <ClInclude Include="src\common\Types.h" />

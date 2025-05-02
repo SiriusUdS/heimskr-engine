@@ -58,6 +58,8 @@
     <ClInclude Include="src\graphics\shaders\Shader.h" />
     <ClInclude Include="src\graphics\shaders\PBR.h" />
     <ClInclude Include="src\graphics\shaders\Final.h" />
+    <ClInclude Include="src\graphics\utilities\Transform3D.h" />
+    <ClInclude Include="src\graphics\utilities\Camera3D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
