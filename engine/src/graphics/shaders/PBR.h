@@ -6,6 +6,7 @@
 #pragma once
 
 #include "Shader.h"
+#include "../ecs/ECS.h"
 
 namespace HeimskrEngine {
   /**
@@ -17,10 +18,13 @@ namespace HeimskrEngine {
     PBRShader() = default;
     PBRShader(const std::string& filename);
 
+    void SetCamera(const Camera3D& camera, const Transform3D& transform, float ratio) const;
+    void Draw(const Mesh3D& mesh, const Transform3D& transform) const;
+
   private:
-    uint32_t u_Model = 0u;
-    uint32_t u_View = 0u;
-    uint32_t u_Projection = 0u;
+    GLint u_Model = 0u;
+    GLint u_View = 0u;
+    GLint u_Projection = 0u;
   };
 }
 
