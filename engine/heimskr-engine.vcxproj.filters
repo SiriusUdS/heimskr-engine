@@ -60,6 +60,8 @@
     <ClInclude Include="src\graphics\shaders\Final.h" />
     <ClInclude Include="src\graphics\utilities\Transform3D.h" />
     <ClInclude Include="src\graphics\utilities\Camera3D.h" />
+    <ClInclude Include="src\ecs\Components3D.h" />
+    <ClInclude Include="src\ecs\Entities3D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">

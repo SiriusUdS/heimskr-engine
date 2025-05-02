@@ -15,6 +15,7 @@ namespace HeimskrEngine {
    */
   struct Transform3D {
     Transform3D() = default;
+    virtual ~Transform3D() = default;
 
     /**
      * \brief Constructs the transformation matrix with the given translation, rotation, and scale.

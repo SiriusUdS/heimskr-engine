@@ -14,6 +14,7 @@ namespace HeimskrEngine {
    */
   struct Camera3D {
     Camera3D() = default;
+    virtual ~Camera3D() = default;
 
     /**
      * \brief Constructs the camera with the given position, rotation, and projection matrix.

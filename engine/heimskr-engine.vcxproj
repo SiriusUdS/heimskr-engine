@@ -106,6 +106,8 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ecs\Components3D.h" />
+    <ClInclude Include="src\ecs\Entities3D.h" />
     <ClInclude Include="src\graphics\shaders\Final.h" />
     <ClInclude Include="src\graphics\shaders\PBR.h" />
     <ClInclude Include="src\graphics\shaders\Shader.h" />
