@@ -14,6 +14,7 @@ namespace HeimskrEngine {
    */
   struct Camera3D {
     Camera3D() = default;
+    Camera3D(const Camera3D&) = default;
     virtual ~Camera3D() = default;
 
     /**
@@ -25,7 +26,7 @@ namespace HeimskrEngine {
       const glm::vec3 centerVector = transform3D.Translation + glm::vec3(0.0f, 0.0f, -1.0f);
       constexpr glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
 
-      return glm::lookAt(eyeVector, centerVector, upVector);
+      return glm::lookAt(eyeVector, centerVector, upVector) * glm::toMat4(glm::quat(glm::radians(transform3D.Rotation)));;
     }
 
 
@@ -49,7 +50,7 @@ namespace HeimskrEngine {
       return glm::perspective(FOV, ratio, NearPlane, FarPlane);
     }
 
-    float NearPlane = 0.3f;
+    float NearPlane = 0.3000f;
     float FarPlane = 1000.0f;
     float FOV = 45.0f;
   };

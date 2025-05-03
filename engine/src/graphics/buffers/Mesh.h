@@ -33,6 +33,7 @@ namespace HeimskrEngine {
       if (indexCount != 0) {
         glDrawElements(mode, indexCount, GL_UNSIGNED_INT, nullptr);
         glBindVertexArray(0);
+        return;
       }
       glDrawArrays(mode, 0, vertexCount);
       glBindVertexArray(0);

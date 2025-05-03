@@ -12,6 +12,7 @@ namespace HeimskrEngine {
    */
   struct Transform3D {
     Transform3D() = default;
+    Transform3D(const Transform3D&) = default;
     virtual ~Transform3D() = default;
 
     /**

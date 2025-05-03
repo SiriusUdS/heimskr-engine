@@ -63,12 +63,13 @@ namespace HeimskrEngine {
     // Rosizing the color attachment
     glBindTexture(GL_TEXTURE_2D, color);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, width, height, 0, GL_RGBA, GL_FLOAT, nullptr);
-    glBindTexture(GL_TEXTURE_2D, 0);
 
     // Resizing the depth attachment
     glBindRenderbuffer(GL_RENDERBUFFER, render);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, width, height);
+
     glBindRenderbuffer(GL_RENDERBUFFER, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
   }
 
 

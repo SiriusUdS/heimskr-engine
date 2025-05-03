@@ -15,9 +15,9 @@ namespace HeimskrEngine {
     MeshData<QuadVertex> quadData;
     quadData.Vertices = {
       { -1.0f, -1.0f, 0.0f, 0.0f },
-      {  -1.0f, 0.0f, 0.0f, 1.0f },
+      {  -1.0f, 1.0f, 0.0f, 1.0f },
       {  1.0f,  1.0f, 1.0f, 1.0f },
-      { 0.0f,  -1.0f, 1.0f, 0.0f }
+      { 1.0f,  -1.0f, 1.0f, 0.0f }
     };
     quadData.Indices = {
       0, 1, 2,
@@ -32,7 +32,7 @@ namespace HeimskrEngine {
     ShadedVertex v0, v1, v2, v3;
 
     v0.Position = glm::vec3(-0.5f, -0.5f, 0.0f);
-    v1.Position = glm::vec3(0.05, -0.5f, 0.0f);
+    v1.Position = glm::vec3(0.5f, -0.5f, 0.0f);
     v2.Position = glm::vec3(0.5f, 0.5f, 0.0f);
     v3.Position = glm::vec3(-0.5f, 0.5f, 0.0f);
 
