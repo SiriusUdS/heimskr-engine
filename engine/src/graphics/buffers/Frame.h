@@ -5,9 +5,10 @@
 
 #pragma once
 #include <cstdint>
-#include <GL/glew.h>
 
-#include "Logger.h"
+#include "../common/Core.h"
+
+#include "../../logging/Logger.h"
 
 namespace HeimskrEngine {
   class FrameBuffer {

@@ -5,9 +5,8 @@
 
 #pragma once
 #include <cstdint>
-#include <GL/glew.h>
 
-#include "Logger.h"
+#include "../../logging/Logger.h"
 #include "Vertex.h"
 #include "../../common/Types.h"
 

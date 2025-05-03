@@ -6,9 +6,8 @@
 #pragma once
 #include <string>
 
-#include "../graphics/utilities/Camera3D.h"
-#include "../graphics/utilities/Transform3D.h"
 #include "../graphics/buffers/Mesh.h"
+#include "ECS.h"
 
 namespace HeimskrEngine {
   /**

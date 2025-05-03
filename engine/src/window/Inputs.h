@@ -9,7 +9,7 @@
 
 #include "../common/Event.h"
 
-#include <GLFW/glfw3.h>
+#include "../common/Core.h"
 
 namespace HeimskrEngine {
   struct WindowInputs {

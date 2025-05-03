@@ -129,6 +129,49 @@ namespace HeimskrEngine {
       context->EventDispatcher.DetachListener<Event>(id);
     }
 
+
+    /**
+     * \brief Creates a new entity of the specified type.
+     * \tparam Entt The entity type to create. Must inherit from the Entity class.
+     * \tparam Args Variadic template arguments for the entity constructor.
+     * \param args Constructor arguments for the entity.
+     * \return The created entity object.
+     */
+    template<typename Entt, typename ... Args>
+    Entt CreateEntity(Args&&... args) {
+      static_assert(std::is_base_of_v<Entity, Entt>);
+      return std::move(Entt(&context->SceneRegistry, std::forward<Args>(args)...));
+    }
+
+
+    /**
+     * \brief Converts an entity to the specified entity type.
+     * \tparam Entt The entity type to convert to. Must inherit from the Entity class.
+     * \param entity The entity to convert.
+     * \return The converted entity object.
+     */
+    template<typename Entt>
+    Entt ToEntity(entt::entity entity) {
+      static_assert(std::is_base_of_v<Entity, Entt>);
+      return std::move(Entt(&context->SceneRegistry, entity));
+    }
+
+
+    /**
+     * \brief Iterates over all entities that possess the specified component and executes the given task for each entity and its component.
+     * \tparam Entt The entity type to iterate over. Must inherit from the Entity class.
+     * \tparam Component The component type to iterate over. Must inherit from the Component class.
+     * \tparam Task The task type to execute. Must be callable with the entity and component as arguments.
+     * \param task The task to execute for each entity and its component.
+     */
+    template<typename Entt, typename Component, typename Task>
+    void EntityView(Task&& task) {
+      static_assert(std::is_base_of_v<Entity, Entt>);
+      context->SceneRegistry.view<Component>().each([this, &task](auto entity, auto& component) {
+        task(std::move(Entt(&context->SceneRegistry, entity)), component);
+      });
+    }
+
   protected:
     virtual void OnUpdate() {}
     virtual void OnStart() {}

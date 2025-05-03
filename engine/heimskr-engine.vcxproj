@@ -82,6 +82,10 @@
     <PreBuildEvent>
       <Command>doxygen Doxyfile</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy /E /Y /I /S "$(ProjectDir)resources" "$(OutDir)resources"
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -104,6 +108,10 @@
     <PreBuildEvent>
       <Command>doxygen Doxyfile</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy /E /Y /I /S "$(ProjectDir)resources" "$(OutDir)resources"
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ecs\Components3D.h" />
@@ -150,7 +158,10 @@
   <ItemGroup>
     <ClCompile Include="src\graphics\shaders\Final.cpp" />
     <ClCompile Include="src\graphics\shaders\PBR.cpp" />
-    <ClCompile Include="src\graphics\shaders\Shader.cpp" />
+    <ClCompile Include="src\graphics\shaders\Shader.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ShowIncludes>
+    </ClCompile>
     <ClCompile Include="src\ecs\base\Entity.cpp" />
     <ClCompile Include="src\ecs\base\EntityManager.cpp" />
     <ClCompile Include="src\core\Engine.cpp" />
@@ -160,12 +171,18 @@
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp" />
     <ClCompile Include="editor\src\gui\ImGuiManager.cpp" />
     <ClCompile Include="editor\src\gui\LoggingWindow.cpp" />
-    <ClCompile Include="src\graphics\buffers\Frame.cpp" />
+    <ClCompile Include="src\graphics\buffers\Frame.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ShowIncludes>
+    </ClCompile>
     <ClCompile Include="src\logging\ImGuiTextBufferSink.cpp" />
     <ClCompile Include="src\logging\Logging.cpp" />
     <ClCompile Include="test\ecs.cpp" />
     <ClCompile Include="src\HeimskrEngine.cpp" />
-    <ClCompile Include="src\window\Window.cpp" />
+    <ClCompile Include="src\window\Window.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ShowIncludes>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\final.glsl" />

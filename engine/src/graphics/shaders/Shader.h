@@ -8,7 +8,7 @@
 #include <string>
 #include <fstream>
 
-#include <GL/glew.h>
+#include "../common/Core.h"
 
 #include "../logging/Logger.h"
 
@@ -19,8 +19,8 @@ namespace HeimskrEngine {
     Shader(const std::string& filename);
     virtual ~Shader();
 
-    inline static void Unbind();
-    inline void Bind() const;
+    static void Unbind();
+    void Bind() const;
 
   private:
     static uint32_t Build(const char* shaderSource, uint32_t type);

@@ -5,9 +5,8 @@
 
 #pragma once
 #include <cstdint>
-#include <GL/glew.h>
 
-#include "Logger.h"
+#include "../logging/Logger.h"
 #include "buffers/Frame.h"
 #include "shaders/Final.h"
 #include "shaders/PBR.h"

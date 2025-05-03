@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "../GLMCommon.h"
+#include "../common/Core.h"
 
 namespace HeimskrEngine {
 

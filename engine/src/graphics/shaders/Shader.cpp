@@ -38,7 +38,7 @@ namespace HeimskrEngine {
    * \return The ID of the compiled shader program.
    */
   uint32_t Shader::Build(const char* shaderSource, uint32_t type) {
-    uint32_t id = glCreateShader(type);
+    const uint32_t id = glCreateShader(type);
     glShaderSource(id, 1, &shaderSource, nullptr);
     glCompileShader(id);
 
@@ -111,9 +111,10 @@ namespace HeimskrEngine {
           }
           loadingVertexSource = false;
         } else {
-          if (line.compare("++FRAGMENT++")) {
-            fragmentSource.append(line + "\n");
+          if (!line.compare("++FRAGMENT++")) {
+            break;
           }
+          fragmentSource.append(line + "\n");
         }
       }
       file.close();

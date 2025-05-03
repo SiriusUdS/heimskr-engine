@@ -4,10 +4,7 @@
  */
 
 #pragma once
-#include <glm/fwd.hpp>
-#include <glm/vec3.hpp>
-#include <glm/gtx/quaternion.hpp>
-#include <glm/gtx/transform.hpp>
+#include "../GLMCommon.h"
 
 namespace HeimskrEngine {
   /**

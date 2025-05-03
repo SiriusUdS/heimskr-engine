@@ -16,7 +16,9 @@ namespace HeimskrEngine {
   public:
     Entity() = default;
     Entity(entt::registry* registry, entt::entity entity) : registry(registry), entity(entity) {}
-    Entity(entt::registry* registry) : registry(registry) {}
+    Entity(entt::registry* registry) : registry(registry) {
+      entity = registry->create();
+    }
     virtual ~Entity() = default;
 
     /**

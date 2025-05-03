@@ -9,7 +9,9 @@
 
 #include "Interface.h"
 #include "../common/Event.h"
+#include "../ecs/ECS.h"
 #include "../window/Window.h"
+#include "../graphics/Renderer.h"
 
 namespace HeimskrEngine {
   class AppInterface;
@@ -18,6 +20,7 @@ namespace HeimskrEngine {
   public:
     AppContext() {
       Window = std::make_unique<class Window>(&EventDispatcher, 1280, 720, "Heimskr Engine");
+      Renderer = std::make_unique<class Renderer>(1280, 720);
     }
 
     ~AppContext() {
@@ -35,6 +38,8 @@ namespace HeimskrEngine {
      */
     std::vector<AppInterface*> Layers;
     std::unique_ptr<Window> Window;
+    std::unique_ptr<Renderer> Renderer;
     EventDispatcher EventDispatcher;
+    entt::registry SceneRegistry;
   };
 }
