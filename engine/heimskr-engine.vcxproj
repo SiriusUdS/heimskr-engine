@@ -178,6 +178,7 @@
     </ClCompile>
     <ClCompile Include="src\logging\ImGuiTextBufferSink.cpp" />
     <ClCompile Include="src\logging\Logging.cpp" />
+    <ClCompile Include="src\utility\GLMMatrixViewer.h" />
     <ClCompile Include="test\ecs.cpp" />
     <ClCompile Include="src\HeimskrEngine.cpp" />
     <ClCompile Include="src\window\Window.cpp">

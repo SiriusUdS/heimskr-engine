@@ -22,6 +22,7 @@ namespace HeimskrEngine {
     glfwWindowHint(GLFW_OPENGL_CORE_PROFILE, GLFW_TRUE);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true); // Enable OpenGL debug context, version 4.3 or higher (Does not work atm)
 
     const GLFWvidmode* displayMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
     glfwWindowHint(GLFW_REFRESH_RATE, displayMode->refreshRate);
