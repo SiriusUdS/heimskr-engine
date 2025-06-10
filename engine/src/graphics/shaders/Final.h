@@ -8,6 +8,7 @@
 
 #include "Shader.h"
 #include "../utilities/Quad.h"
+#include "../utility/GLGetError.h"
 
 namespace HeimskrEngine {
   /**

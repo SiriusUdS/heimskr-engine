@@ -8,6 +8,8 @@
 #include "Shader.h"
 #include "../ecs/ECS.h"
 
+#include "../utility/GLGetError.h"
+
 namespace HeimskrEngine {
   /**
    * @class PBRShader

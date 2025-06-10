@@ -19,8 +19,8 @@ namespace HeimskrEngine {
   class AppContext {
   public:
     AppContext() {
-      Window = std::make_unique<class Window>(&EventDispatcher, 1280, 720, "Heimskr Engine");
-      Renderer = std::make_unique<class Renderer>(1280, 720);
+      Window = std::make_unique<class Window>(&EventDispatcher, 1280, 1280, "Heimskr Engine");
+      Renderer = std::make_unique<class Renderer>(1280, 1280);
     }
 
     ~AppContext() {

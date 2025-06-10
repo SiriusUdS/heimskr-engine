@@ -92,7 +92,7 @@ namespace HeimskrEngine {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_SAMPLES);
+    glEnable(GL_MULTISAMPLE);
   }
 
 
@@ -100,7 +100,7 @@ namespace HeimskrEngine {
    * \brief Ends the framebuffer rendering.
    */
   void FrameBuffer::End() const {
-    glDisable(GL_SAMPLES);
+    glDisable(GL_MULTISAMPLE);
     glDisable(GL_DEPTH_TEST);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
   }

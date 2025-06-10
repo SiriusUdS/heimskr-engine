@@ -21,7 +21,7 @@ namespace HeimskrEngine {
    */
   void PBRShader::SetCamera(const Camera3D& camera, const Transform3D& transform, float ratio) const {
     glUniformMatrix4fv(u_Projection, 1, GL_FALSE, glm::value_ptr(camera.Projection(ratio)));
-    glUniformMatrix4fv(u_View, 1, GL_FALSE, glm::value_ptr(Camera3D::View(transform)));
+    glUniformMatrix4fv(u_View, 1, GL_FALSE, glm::value_ptr(camera.View(transform)));
   }
 
 

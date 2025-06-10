@@ -151,6 +151,7 @@
     <ClInclude Include="src\logging\ImGuiTextBufferSink.h" />
     <ClInclude Include="src\logging\Logging.h" />
     <ClInclude Include="src\utility\AssertMsgFormat.h" />
+    <ClInclude Include="src\utility\GLGetError.h" />
     <ClInclude Include="src\window\Events.h" />
     <ClInclude Include="src\window\Inputs.h" />
     <ClInclude Include="src\window\Window.h" />

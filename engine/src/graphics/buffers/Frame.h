@@ -9,6 +9,7 @@
 #include "../common/Core.h"
 
 #include "../../logging/Logger.h"
+#include "../../utility/GLGetError.h"
 
 namespace HeimskrEngine {
   class FrameBuffer {

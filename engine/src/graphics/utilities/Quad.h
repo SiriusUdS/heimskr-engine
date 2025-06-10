@@ -14,10 +14,10 @@ namespace HeimskrEngine {
   inline Quad2D CreateQuad2D() {
     MeshData<QuadVertex> quadData;
     quadData.Vertices = {
-      { -1.0f, -1.0f, 0.0f, 0.0f },
-      {  -1.0f, 1.0f, 0.0f, 1.0f },
-      {  1.0f,  1.0f, 1.0f, 1.0f },
-      { 1.0f,  -1.0f, 1.0f, 0.0f }
+      {{ -1.0f, -1.0f, 0.0f, 0.0f }},
+      {{  -1.0f, 1.0f, 0.0f, 1.0f }},
+      {{  1.0f,  1.0f, 1.0f, 1.0f }},
+      {{ 1.0f,  -1.0f, 1.0f, 0.0f }}
     };
     quadData.Indices = {
       0, 1, 2,

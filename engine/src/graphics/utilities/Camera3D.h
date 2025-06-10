@@ -26,7 +26,7 @@ namespace HeimskrEngine {
       const glm::vec3 centerVector = transform3D.Translation + glm::vec3(0.0f, 0.0f, -1.0f);
       constexpr glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
 
-      return glm::lookAt(eyeVector, centerVector, upVector) * glm::toMat4(glm::quat(glm::radians(transform3D.Rotation)));;
+      return glm::lookAt(eyeVector, centerVector, upVector) * glm::toMat4(glm::quat(glm::radians(transform3D.Rotation)));
     }
 
 
