@@ -63,6 +63,7 @@
     <ClInclude Include="src\ecs\Components3D.h" />
     <ClInclude Include="src\ecs\Entities3D.h" />
     <ClInclude Include="src\utility\GLGetError.h" />
+    <ClInclude Include="src\graphics\AssimpHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="editor\src\gui\ControlsWindow.cpp">
